@@ -1,0 +1,21 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.89s
+     Running `target/debug/gh-search query 'mcp protocol specification' --limit 2 --no-human`
+2026-01-04T10:27:47.401992Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:27:47.523049Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.244104408s before retrying query 'mcp protocol specification language:rust'
+2026-01-04T10:27:47.792298Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:28:16.664833Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:16.673648Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:16.674419Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:16.681351Z  WARN GitHub rate limit hit (retry 1/3). Waiting 30.24306841s before retrying query 'mcp protocol specification language:rust type:issue'
+2026-01-04T10:28:16.682748Z  WARN GitHub rate limit hit (retry 1/3). Waiting 30.241669577s before retrying query 'mcp protocol specification language:rust'
+2026-01-04T10:28:16.691210Z  WARN GitHub rate limit hit (retry 1/3). Waiting 30.233214838s before retrying query 'mcp protocol specification language:rust type:pr'
+2026-01-04T10:28:47.166366Z  WARN Fracture sub-query timed out: mcp protocol specification
+2026-01-04T10:28:47.462028Z  WARN Fracture sub-query timed out: mcp protocol
+2026-01-04T10:28:47.762787Z  WARN Fracture sub-query timed out: protocol specification
+2026-01-04T10:28:48.064034Z  WARN Fracture sub-query timed out: mcp specification
+2026-01-04T10:28:48.364648Z  WARN Fracture sub-query timed out: protocol
+[]

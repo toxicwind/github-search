@@ -1,0 +1,5 @@
+archive
+cli-patterns.md
+DESIGN_NOTES.md
+pattern-research-dec2025.md
+self-improver.md

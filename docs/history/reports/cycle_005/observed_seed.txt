@@ -1,0 +1,48 @@
+== GIT ==
+3cdfecf32a85d0275cfa914e67c16db5f9152b16
+ M .dockerignore
+ M .gitignore
+ M Cargo.lock
+ M Cargo.toml
+ M LICENSE
+ M README.md
+ M crates/app/Cargo.toml
+ M crates/app/src/config.rs
+ M crates/app/src/main.rs
+ M crates/app/src/server.rs
+ M crates/app/static/css/styles.css
+ M crates/app/static/index.html
+ M crates/app/static/js/app.js
+ M crates/cache/Cargo.toml
+ M crates/cache/src/lib.rs
+ M crates/context/Cargo.toml
+ M crates/context/src/lib.rs
+ M crates/core/Cargo.toml
+ M crates/core/src/clustering.rs
+ M crates/core/src/lib.rs
+ M crates/core/src/llm.rs
+ M crates/core/src/regex_expander.rs
+ M crates/core/src/self_improver.rs
+ M crates/core/src/syntax.rs
+ M crates/mcp/Cargo.toml
+ M crates/mcp/src/main.rs
+ M docker/api.Dockerfile
+ M docker/dev.Dockerfile
+ M docker/legacy.Dockerfile
+ M docker/mcp.Dockerfile
+ M docs/DESIGN_NOTES.md
+ M docs/archive/EMERGENT_TASKS_CYCLE1.md
+ M docs/cli-patterns.md
+ M docs/pattern-research-dec2025.md
+ M docs/self-improver.md
+ M infra/docker-compose.yml
+ M scripts/debug/debug.sh
+ M scripts/debug/repro_input.json
+ M task.md
+ M walkthrough_report.md
+?? CONSOLIDATION_REPORT.md
+?? reports/
+== ALIAS ==
+not in path
+== BUILD ==
+-rwxr-xr-x 2 toxic toxic 13321264 Dec 18 23:10 target/release/gh-search

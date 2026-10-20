@@ -1,0 +1,50 @@
+2026-01-04T10:32:45.229192Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:32:45.234132Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.245057466s before retrying query 'modules kernel linux'
+2026-01-04T10:32:45.360152Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:32:45.369256Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.240896551s before retrying query 'linux kernel modules language:rust'
+2026-01-04T10:32:45.423525Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.453020Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.453533Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.466699Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.467330Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.474355Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.482456Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.241899134s before retrying query 'linux kernel modules language:rust type:issue'
+2026-01-04T10:32:45.518487Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.519149Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.530553Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.531007Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.561431Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.580897Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.23053198s before retrying query 'linux kernel modules language:rust'
+2026-01-04T10:32:45.585453Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.586321Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.636197Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:46.140399Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:46.141035Z  WARN 🚨 Rate limit exhausted! Reset in 57s
+2026-01-04T10:32:46.201327Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:46.201949Z  WARN 🚨 Rate limit exhausted! Reset in 57s
+2026-01-04T10:33:44.781163Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.783120Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kernel modules'
+2026-01-04T10:33:44.784535Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.786431Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kernel modules'
+2026-01-04T10:33:44.786912Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.789035Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux kernel modules'
+2026-01-04T10:33:44.789544Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.791294Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux kernel modules'
+2026-01-04T10:33:44.797209Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.798667Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux'
+2026-01-04T10:33:44.799186Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.799596Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.799795Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux kernel'
+2026-01-04T10:33:44.800739Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.801331Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux modules'
+2026-01-04T10:33:44.803545Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux'
+2026-01-04T10:33:44.808894Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.811557Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux modules'
+2026-01-04T10:33:44.812653Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.814929Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'linux kernel'
+2026-01-04T10:33:44.926093Z  WARN Fracture sub-query timed out: linux kernel modules
+2026-01-04T10:33:45.228061Z  WARN Fracture sub-query timed out: linux kernel
+2026-01-04T10:33:45.527861Z  WARN Fracture sub-query timed out: kernel modules
+2026-01-04T10:33:45.828850Z  WARN Fracture sub-query timed out: linux modules
+2026-01-04T10:33:46.129466Z  WARN Fracture sub-query timed out: linux
+[]

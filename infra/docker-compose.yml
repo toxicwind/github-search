@@ -1,0 +1,61 @@
+# HYPEBRUT SHELL-OS — DOCKER COMPOSE ORCHESTRATION (v2025 OMEGA)
+# -------------------------------------------------------------
+
+services:
+  # ============================================
+  # MCP SERVER (RUST NATIVE)
+  # ============================================
+  mcp-server:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    ports:
+      - "${MCP_PORT:-35161}:42305"
+    # Prefer using an env_file so variables like GITHUB_TOKEN are loaded
+    env_file:
+      - /home/toxic/.env
+    environment:
+      - RUST_LOG=${RUST_LOG:-info}
+      - GH_SEARCH_CACHE_DIR=/root/.gh-search-cache
+    volumes:
+      - ~/.gh-search-cache:/root/.gh-search-cache
+      - ../:/app-src:cached # Mount source code without overwriting built binary
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -sf -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"clientInfo\":{\"name\":\"health\",\"version\":\"1.0\"},\"capabilities\":{}}}' http://localhost:${MCP_PORT:-35161}/mcp > /dev/null" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - gh-net
+
+  # ============================================
+  # FRONTEND (NEXT.JS)
+  # ============================================
+  frontend:
+    build:
+      context: ../crates/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "35160:35160"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://mcp-server:${MCP_PORT:-35161}
+      - NODE_ENV=development
+    volumes:
+      - ../crates/frontend:/app:cached
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - mcp-server
+    profiles:
+      - frontend
+    networks:
+      - gh-net
+
+networks:
+  gh-net:
+    driver: bridge
+
+volumes:
+  cargo-cache:
+    driver: local

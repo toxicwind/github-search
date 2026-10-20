@@ -1,0 +1,22 @@
+2026-01-04T10:32:45.075697Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.102765Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.195329Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:32:45.201083Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.244245257s before retrying query 'python data science language:rust'
+2026-01-04T10:32:45.423924Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.458254Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.511123Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.536380Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.536954Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.628811Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.629508Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.648356Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.648787Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.671017Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.671582Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.815205Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:33:44.827108Z  WARN Fracture sub-query timed out: python data science
+2026-01-04T10:33:45.135545Z  WARN Fracture sub-query timed out: python data
+2026-01-04T10:33:45.429968Z  WARN Fracture sub-query timed out: data science
+2026-01-04T10:33:45.730141Z  WARN Fracture sub-query timed out: python science
+2026-01-04T10:33:46.030730Z  WARN Fracture sub-query timed out: python
+[]

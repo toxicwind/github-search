@@ -1,0 +1,10 @@
+# Live runtime is Bun (apps/mcp, packages/*).
+# Rust sources are archived under legacy/rust/ and _archaeology/ — not built by default.
+[workspace]
+members = []
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+authors = ["Hypebrut Labs"]
+license = "MIT"

@@ -1,0 +1,16 @@
+hooks/useInstantSearch.ts(89,17): error TS2322: Type 'string[]' is not assignable to type 'SearchCategory[]'.
+  Type 'string' is not assignable to type 'SearchCategory'.
+hooks/useInstantSearch.ts(115,27): error TS2339: Property 'results' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(115,66): error TS2339: Property 'results' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(116,34): error TS2339: Property 'results' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(122,78): error TS2339: Property 'donors' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(123,34): error TS2339: Property 'donors' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(128,86): error TS2339: Property 'intent' does not exist on type 'ClusteredResults'.
+hooks/useInstantSearch.ts(129,87): error TS2339: Property 'metrics' does not exist on type 'ClusteredResults'.
+lib/api-client.ts(25,89): error TS18046: 'results.List' is of type 'unknown'.
+lib/mcp-bridge.ts(70,42): error TS2339: Property 'length' does not exist on type '{}'.
+lib/mcp-bridge.ts(71,23): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type '{}'.
+  Property '0' does not exist on type '{}'.
+lib/mcp-bridge.ts(92,42): error TS2339: Property 'length' does not exist on type '{}'.
+lib/mcp-bridge.ts(93,23): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type '{}'.
+  Property '0' does not exist on type '{}'.

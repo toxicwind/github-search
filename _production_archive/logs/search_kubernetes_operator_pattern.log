@@ -1,0 +1,57 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 37.72s
+     Running `target/debug/gh-search query 'kubernetes operator pattern' --limit 2 --no-human`
+2026-01-04T10:28:17.279123Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.280306Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.281236Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.249070788s before retrying query 'kubernetes operator pattern type:pr'
+2026-01-04T10:28:17.281643Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:17.282954Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.248689654s before retrying query 'kubernetes operator pattern'
+2026-01-04T10:28:17.284560Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.247082938s before retrying query 'kubernetes operator pattern'
+2026-01-04T10:28:17.287222Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.292207Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.245018912s before retrying query 'kubernetes operator pattern'
+2026-01-04T10:28:17.315678Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.318203Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.247468929s before retrying query 'kubernetes operator pattern type:issue'
+2026-01-04T10:28:17.390862Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.393701Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.24715609s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:17.403729Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:17.406443Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.247279006s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:17.412877Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.414058Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.415700Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.248358885s before retrying query 'pattern operator kubernetes type:pr'
+2026-01-04T10:28:17.417377Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.246680919s before retrying query 'pattern operator kubernetes type:issue'
+2026-01-04T10:28:17.451113Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:17.453995Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.247112244s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:46.610660Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.612932Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kubernetes operator pattern language:rust type:issue'
+2026-01-04T10:28:46.616370Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.617700Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kubernetes operator pattern language:rust type:pr'
+2026-01-04T10:28:46.622383Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.623810Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:28:46.626528Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.628724Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:28:46.683035Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.686778Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:28:46.756297Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.759751Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:46.762702Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.766372Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:46.774146Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.776066Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'pattern operator kubernetes type:pr'
+2026-01-04T10:28:46.809657Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.811891Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'pattern operator kubernetes type:issue'
+2026-01-04T10:28:46.813331Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.815171Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'pattern operator kubernetes'
+2026-01-04T10:28:47.313875Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:47.317286Z  WARN GitHub rate limit hit (retry 1/3). Waiting 60.246587682s before retrying query 'kubernetes operator pattern'
+2026-01-04T10:28:48.218187Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:48.222184Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.245997968s before retrying query 'kubernetes pattern'
+2026-01-04T10:29:17.199910Z  WARN Fracture sub-query timed out: kubernetes operator pattern
+2026-01-04T10:29:17.502458Z  WARN Fracture sub-query timed out: kubernetes operator
+2026-01-04T10:29:17.803567Z  WARN Fracture sub-query timed out: operator pattern
+2026-01-04T10:29:18.103575Z  WARN Fracture sub-query timed out: kubernetes pattern
+2026-01-04T10:29:18.401862Z  WARN Fracture sub-query timed out: kubernetes
+[]

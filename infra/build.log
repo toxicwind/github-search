@@ -1,0 +1,56 @@
+   Compiling gh-search-core v0.1.0 (/home/toxic/development/github-advanced-search-mcp/crates/core)
+   Compiling gh-search v0.2.0 (/home/toxic/development/github-advanced-search-mcp/crates/app)
+   Compiling gh-search-mcp v0.1.0 (/home/toxic/development/github-advanced-search-mcp/crates/mcp)
+warning: unused import: `error`
+  --> crates/app/src/server.rs:15:15
+   |
+15 | use tracing::{error, info};
+   |               ^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `gh_search_context::ContextAnalyzer`
+  --> crates/app/src/server.rs:17:5
+   |
+17 | use gh_search_context::ContextAnalyzer;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> crates/app/src/server.rs:236:9
+    |
+236 |     let mut results = state.client.search(request).await.map_err(|e| {
+    |         ----^^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> crates/app/src/server.rs:351:20
+    |
+351 |                 Ok(mut results) => {
+    |                    ----^^^^^^^
+    |                    |
+    |                    help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> crates/app/src/main.rs:166:17
+    |
+166 |             let mut results = client.search(request).await?;
+    |                 ----^^^^^^^
+    |                 |
+    |                 help: remove this `mut`
+
+warning: field `stream` is never read
+   --> crates/app/src/server.rs:531:5
+    |
+528 | struct ChatCompletionRequest {
+    |        --------------------- field in this struct
+...
+531 |     stream: bool,
+    |     ^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `gh-search` (bin "gh-search") generated 6 warnings (run `cargo fix --bin "gh-search"` to apply 5 suggestions)
+    Finished `release` profile [optimized] target(s) in 24.50s

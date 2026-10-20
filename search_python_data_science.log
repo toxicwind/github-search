@@ -1,0 +1,76 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 40.67s
+     Running `target/debug/gh-search query 'python data science' --limit 2 --no-human`
+2026-01-04T10:28:20.213396Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:20.217270Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.246115238s before retrying query 'python data science'
+2026-01-04T10:28:20.217927Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.222512Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.224547Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.247962948s before retrying query 'python data science'
+2026-01-04T10:28:20.225810Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.227189Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.248620471s before retrying query 'python data science type:issue'
+2026-01-04T10:28:20.229094Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.230586Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.248508213s before retrying query 'python data science type:pr'
+2026-01-04T10:28:20.234149Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.244950888s before retrying query 'python data science'
+2026-01-04T10:28:20.355873Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:20.358677Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.360168Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.360955Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.362974Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.247982407s before retrying query 'science data python'
+2026-01-04T10:28:20.363604Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.247350988s before retrying query 'science data python type:pr'
+2026-01-04T10:28:20.365080Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.245875536s before retrying query 'science data python'
+2026-01-04T10:28:20.365844Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.367259Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.248585149s before retrying query 'science data python type:issue'
+2026-01-04T10:28:20.370606Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.245238603s before retrying query 'science data python'
+2026-01-04T10:28:46.579420Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.581182Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'python data science language:rust type:issue'
+2026-01-04T10:28:46.585644Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.587049Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'python data science language:rust'
+2026-01-04T10:28:46.591800Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.593817Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'python data science language:rust'
+2026-01-04T10:28:46.596994Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.599303Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'python data science language:rust'
+2026-01-04T10:28:46.604584Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.606905Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'python data science language:rust type:pr'
+2026-01-04T10:28:46.723562Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.725988Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'python data science'
+2026-01-04T10:28:46.726354Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.728991Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'python data science'
+2026-01-04T10:28:46.742104Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.743374Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.745545Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'python data science type:issue'
+2026-01-04T10:28:46.746132Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'python data science type:pr'
+2026-01-04T10:28:46.753227Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.756049Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'python data science'
+2026-01-04T10:28:49.545204Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:49.547861Z  WARN GitHub rate limit hit (retry 2/3). Waiting 58.24733619s before retrying query 'science data python'
+2026-01-04T10:28:49.801322Z  WARN ⚠️  Rate limit low: 2/30 (6.666666666666667%) - throttling enabled
+2026-01-04T10:29:00.252520Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:29:00.254596Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.247914984s before retrying query 'python data science'
+2026-01-04T10:29:00.269977Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:29:00.271335Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.248640684s before retrying query 'python data science'
+2026-01-04T10:29:00.555429Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:29:00.556387Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.249035693s before retrying query 'python data'
+2026-01-04T10:29:00.569889Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:29:00.570855Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.249032291s before retrying query 'python data'
+2026-01-04T10:29:00.864912Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:29:00.866527Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.248379137s before retrying query 'data science'
+2026-01-04T10:29:00.881560Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:29:00.882729Z  WARN GitHub rate limit hit (retry 1/3). Waiting 47.248829338s before retrying query 'data science'
+2026-01-04T10:29:01.158522Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:29:01.159635Z  WARN GitHub rate limit hit (retry 1/3). Waiting 46.248880683s before retrying query 'python science'
+2026-01-04T10:29:01.162890Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:29:01.164270Z  WARN GitHub rate limit hit (retry 1/3). Waiting 46.248618531s before retrying query 'python science'
+2026-01-04T10:29:01.466730Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:29:01.469016Z  WARN GitHub rate limit hit (retry 1/3). Waiting 46.247706178s before retrying query 'python'
+2026-01-04T10:29:01.523862Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:29:01.525105Z  WARN GitHub rate limit hit (retry 1/3). Waiting 46.248749242s before retrying query 'python'
+2026-01-04T10:29:20.148105Z  WARN Fracture sub-query timed out: python data science
+2026-01-04T10:29:20.453663Z  WARN Fracture sub-query timed out: python data
+2026-01-04T10:29:20.755112Z  WARN Fracture sub-query timed out: data science
+2026-01-04T10:29:21.054820Z  WARN Fracture sub-query timed out: python science
+2026-01-04T10:29:21.354491Z  WARN Fracture sub-query timed out: python
+[]

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Advanced Search</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body class="bg-gray-950 text-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1
+            class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            GitHub Advanced Search
+        </h1>
+
+        <div class="flex justify-end mb-4 gap-4">
+             <button onclick="toggleTheme()" class="text-gray-400 hover:text-white">
+                <span id="theme-icon">🌙</span>
+             </button>
+            <button id="btn-dashboard" class="text-sm text-gray-400 hover:text-white underline">System Status</button>
+        </div>
+        <div id="metrics-panel" class="hidden mb-8 p-4 bg-gray-900 rounded-lg border border-gray-800">
+            <h2 class="text-xl font-bold mb-4">System Metrics</h2>
+            <div id="metrics-content" class="grid grid-cols-3 gap-4">Loading...</div>
+        </div>
+
+        <form hx-ext="ws" ws-connect="/ws/search" class="mb-8">
+            <div class="flex gap-4">
+                <input type="text" name="query" placeholder="Search GitHub..."
+                    class="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500"
+                    ws-send />
+                <button type="submit"
+                    class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors" <button
+                    type="submit"
+                    class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition-colors">
+                    Search
+                </button>
+            </div>
+            <div class="flex items-center gap-4 mt-2">
+                <label
+                    class="flex items-center gap-2 cursor-pointer text-sm text-gray-400 hover:text-white group relative">
+                    <input type="checkbox" id="chk-regex" class="rounded bg-gray-800 border-gray-700"> Regex Mode
+                    <div
+                        class="absolute left-0 top-full mt-2 w-64 p-2 bg-gray-800 border border-gray-700 text-xs text-gray-300 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-lg">
+                        Use regex syntax (e.g. <code>^fn.*main</code>). <br>Backend automatically detects regex
+                        patterns.
+                    </div>
+                </label>
+            </div>
+
+            <button type="button" id="btn-research"
+                class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded text-sm font-semibold transition-colors flex items-center gap-2">
+                ✨ Deep Research
+            </button>
+        </form>
+
+        <div id="recent-searches" class="flex flex-wrap gap-2 mb-8"></div>
+
+        <div id="research-panel" class="hidden mb-8 p-6 bg-gray-900 rounded-lg border border-purple-900 shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span class="text-purple-400">⚡</span> Research Report
+            </h2>
+            <div id="research-content" class="prose prose-invert max-w-none text-gray-300">
+                Loading intelligence...
+            </div>
+        </div>
+
+        <div id="results" class="grid grid-cols-1 gap-4 max-w-5xl mx-auto"></div>
+
+    </div>
+
+    <!-- Metrics Modal Backdrop -->
+    <div id="modal-metrics" class="modal-backdrop">
+        <div class="bg-gray-900 border border-gray-700 p-6 rounded-xl w-full max-w-lg relative" onclick="event.stopPropagation()">
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-white" onclick="document.getElementById('modal-metrics').classList.remove('active')">&times;</button>
+            <h2 class="text-xl font-bold mb-4">System Status</h2>
+            <div id="metrics-modal-content" class="grid grid-cols-2 gap-4">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Shortcuts Modal -->
+    <div id="modal-shortcuts" class="modal-backdrop">
+         <div class="bg-gray-900 border border-gray-700 p-6 rounded-xl w-full max-w-md relative" onclick="event.stopPropagation()">
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-white" onclick="document.getElementById('modal-shortcuts').classList.remove('active')">&times;</button>
+            <h2 class="text-xl font-bold mb-4">Keyboard Shortcuts</h2>
+            <div class="space-y-2 text-sm text-gray-300">
+                <div class="flex justify-between"><span>Focus Search</span> <kbd class="px-2 py-1 bg-gray-800 rounded border border-gray-700">/</kbd></div>
+                <div class="flex justify-between"><span>Navigate Results</span> <kbd class="px-2 py-1 bg-gray-800 rounded border border-gray-700">j / k</kbd></div>
+                <div class="flex justify-between"><span>Open Result</span> <kbd class="px-2 py-1 bg-gray-800 rounded border border-gray-700">Enter</kbd></div>
+                <div class="flex justify-between"><span>Help</span> <kbd class="px-2 py-1 bg-gray-800 rounded border border-gray-700">?</kbd></div>
+            </div>
+         </div>
+    </div>
+
+    <footer class="mt-16 py-8 border-t border-gray-800 text-center text-gray-600 text-sm">
+        <p>GitHub Advanced Search • Built with Rust & Axum</p>
+        <div class="mt-2 flex justify-center gap-4">
+            <button class="hover:text-gray-400" onclick="document.getElementById('modal-shortcuts').classList.add('active')">Shortcuts</button>
+            <span>v0.3.0</span>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

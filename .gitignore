@@ -1,0 +1,56 @@
+# ===============================
+# Build Artifacts & Caches
+# ===============================
+.next-clean/
+**/.next-clean/
+.next/
+out/
+dist/
+.turbo/
+**/.turbo/
+target/
+debug/
+release/
+build/
+.eggs/
+.pnpm-store/
+node_modules/
+.gh-search-cache/
+/logs/
+/apps/infra/
+apps/frontend/tsconfig.tsbuildinfo
+/.playwright-cli/
+
+# ===============================
+# Environment & Secrets
+# ===============================
+.env
+.secrets
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+
+# ===============================
+# IDE & OS Files
+# ===============================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Tooling & Misc
+# ===============================
+*.bak
+scripts/cycle_*
+.fastembed_cache/
+_production_archive/cache/
+
+# per-user IDE configs (contain local credentials)
+.codeium/
+.windsurf/
+.cursor/

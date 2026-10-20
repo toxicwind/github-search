@@ -1,0 +1,7 @@
+[files]
+extend-exclude = ["_legacy_archive", "target", "node_modules", "Cargo.lock"]
+
+[default.extend-words]
+ist = "ist"
+elipsis = "elipsis"
+Bui = "Bui"

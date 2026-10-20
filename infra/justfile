@@ -1,0 +1,39 @@
+# GitHub Advanced Search MCP - Darwin-Prismaticos Framework
+set shell := ["bash", "-cu"]
+
+# Default: build everything
+default: build
+
+# Build the Rust workspace and Next.js frontend
+build:
+    @echo "Building Rust workspace..."
+    cargo build --release --workspace
+    @echo "Building Next.js frontend..."
+    cd crates/frontend && FORCE_COLOR=0 npm run build
+
+# Run the API server with Next.js embedded
+serve port="8877":
+    cargo run --release --bin gh-search -- serve --port {{port}}
+
+# Execute a smart search (Opt-out is now default)
+search query *args:
+    cargo run --release --bin gh-search -- query "{{query}}" {{args}}
+
+# Execute a search and output JSON for LLM consumption
+search-json query *args:
+    cargo run --release --bin gh-search -- query "{{query}}" --no-human {{args}}
+
+# Restart the server and background it
+restart:
+    fuser -k 8877/tcp || true
+    cargo run --release --bin gh-search -- serve --port 8877 > server.log 2>&1 &
+    @echo "Server restarted in background. Logs at server.log"
+
+# Clean all artifacts
+clean:
+    cargo clean
+    rm -rf crates/frontend/.next crates/frontend/out
+
+# Watch for changes and restart server (Hot Reload)
+watch:
+    cargo watch -x 'run -p gh-search -- serve --port 8877'

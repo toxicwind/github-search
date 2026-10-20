@@ -1,0 +1,135 @@
+# Rust CLI Patterns from github-advanced-search-mcp
+
+Extracted from old `crates/cli` during project consolidation.
+
+## Clap CLI with Optional Positional + Subcommands
+
+```rust
+#[derive(Parser, Debug)]
+#[command(
+    author,
+    version,
+    about = "Rusty GitHub search orchestrator",
+    after_help = "Example: gh-search --query \"rust\" --category code"
+)]
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Command>,
+
+    /// GitHub search query (optional - for non-subcommand mode)
+    #[arg(short, long)]
+    query: Option<String>,
+
+    /// Categories to search
+    #[arg(long = "category", value_enum)]
+    categories: Vec<CategoryArg>,
+}
+```
+
+## Dev Subcommand Pattern
+
+```rust
+mod dev;
+
+#[derive(Subcommand, Debug)]
+enum Command {
+    Dev(dev::DevCommand),
+}
+
+// In main:
+if let Some(command) = command {
+    match command {
+        Command::Dev(cmd) => {
+            dev::run(cmd)?;
+            return Ok(());
+        }
+    }
+}
+```
+
+## Category Enum with ValueEnum
+
+```rust
+#[derive(Copy, Clone, Debug, ValueEnum)]
+enum CategoryArg {
+    Repositories,
+    Code,
+}
+
+impl From<CategoryArg> for SearchCategory {
+    fn from(value: CategoryArg) -> Self {
+        match value {
+            CategoryArg::Repositories => SearchCategory::Repositories,
+            CategoryArg::Code => SearchCategory::Code,
+        }
+    }
+}
+```
+
+## Progress Spinner
+
+```rust
+use indicatif::ProgressBar;
+
+let spinner = ProgressBar::new_spinner();
+spinner.set_message("Searching...");
+spinner.enable_steady_tick(std::time::Duration::from_millis(80));
+// ... work ...
+spinner.finish_and_clear();
+```
+# Pattern Improvements (Dec 2025 Research)
+
+Research conducted via `hb research` CLI.
+
+## Patterns Found
+
+### 1. MCP Server State Pattern
+From [jmagar/hive](https://github.com/jmagar/hive) (Nov 2025):
+
+```rust
+#[derive(Clone)]
+pub struct McpServer {
+    state: Arc<RwLock<ServerState>>,
+}
+
+#[derive(Default)]
+struct ServerState {
+    config: ServerConfig,
+}
+```
+
+**Status:** ✅ We already use similar pattern with `GitHubSearchClient`
+
+### 2. Rate Limiting (API Server)
+```rust
+pub struct RateLimiter {
+    limits: Arc<RwLock<HashMap<String, RateLimitEntry>>>,
+    max_requests: usize,
+    window: Duration,
+}
+```
+
+**Status:** ⚠️ Could add to `/api/search` endpoint
+
+### 3. Production Hardening
+- Rate limiting middleware
+- Auth middleware
+- Session management for HTTP MCP
+
+**Status:** Future work for `gh-search serve`
+
+## Recommendations
+
+| Priority | Improvement | Effort |
+|----------|-------------|--------|
+| Low | Add rate limiting to API | Medium |
+| Low | SSE streaming for large results | High |
+| Already done | `#[tool_router]` pattern | ✅ |
+| Already done | `--raw` passthrough | ✅ |
+
+## Research Queries Used
+```bash
+hb research query "rmcp tool_router async Rust MCP 2025" -t code
+hb research query "axum tower middleware rate limiting rust 2025" -t code
+hb research query "GitHub search API rust caching 2025" -t code
+```

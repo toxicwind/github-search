@@ -1,0 +1,764 @@
+{
+  "audit_timestamp": "/home/toxic/development/github-advanced-search-mcp",
+  "critical_files": {
+    "cargo_files": [
+      "Cargo.toml",
+      "crates/core/Cargo.toml",
+      "crates/app/Cargo.toml",
+      "crates/cache/Cargo.toml",
+      "crates/context/Cargo.toml"
+    ],
+    "python_files": [
+      "consolidation_audit.py",
+      "scripts/mcp_smoketest.py",
+      "scripts/deep_audit.py",
+      "tests/debug_mcp.py",
+      "tests/e2e_test.py",
+      "tests/meta_config_validator.py",
+      "tests/repro_failure.py",
+      "tests/stress_test.py",
+      "tests/test_radon.py",
+      "tests/verify_distillation.py",
+      "tests/verify_emergent.py",
+      "tests/verify_fix.py",
+      "tests/verify_godeye.py",
+      "tests/verify_logic_direct.py",
+      "tests/verify_negation.py",
+      "tests/verify_parity_fix.py",
+      "tests/verify_parity.py",
+      "tests/verify_python_mcp.py",
+      "_production_archive/cache/crates/frontend/node_modules/katex/src/fonts/generate_fonts.py",
+      "_production_archive/cache/crates/frontend/node_modules/katex/src/metrics/extract_tfms.py",
+      "_production_archive/cache/crates/frontend/node_modules/katex/src/metrics/extract_ttfs.py",
+      "_production_archive/cache/crates/frontend/node_modules/katex/src/metrics/format_json.py",
+      "_production_archive/cache/crates/frontend/node_modules/katex/src/metrics/parse_tfm.py",
+      "_production_archive/cache/crates/frontend/node_modules/flatted/python/flatted.py",
+      "tests/repro/repro_error.py",
+      "tests/repro/test_auth.py"
+    ],
+    "docker_files": [
+      "Dockerfile",
+      "infra/Dockerfile",
+      "crates/frontend/Dockerfile",
+      "docker-compose.yml",
+      "infra/docker-compose.yml"
+    ],
+    "config_files": [
+      "tool_list_output.json",
+      "audit_results.json",
+      ".gemini/state.json",
+      "crates/search_results.json",
+      "crates/search_results_tuned.json",
+      "_production_archive/research/research_q1.json",
+      "_production_archive/research/research_q2.json",
+      "_production_archive/research/research_q3.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft201909/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft202012/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft3/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft4/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft6/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema_specifications/schemas/draft7/metaschema.json",
+      ".venv/lib/python3.14/site-packages/jsonschema/benchmarks/issue232/issue.json",
+      ".fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer.json",
+      ".fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/config.json",
+      ".fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/special_tokens_map.json",
+      ".fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer_config.json",
+      "crates/frontend/tsconfig.json",
+      "crates/frontend/package.json",
+      "crates/frontend/package-lock.json",
+      "crates/core/.fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer.json",
+      "crates/core/.fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/config.json",
+      "crates/core/.fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/special_tokens_map.json",
+      "crates/core/.fastembed_cache/models--Xenova--bge-small-en-v1.5/snapshots/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer_config.json",
+      "crates/frontend/out/_next/static/Pput6qettgaQA2yH-zXfy/_clientMiddlewareManifest.json",
+      ".codeium/windsurf/mcp_config.json",
+      "scripts/debug/repro_input.json",
+      "docs/history/reports/state.json",
+      "docs/history/reports/blueprints/cycle_008_web_affordances.json",
+      "Cargo.toml",
+      "pyproject.toml",
+      "typos.toml",
+      ".cargo/config.toml",
+      "crates/core/Cargo.toml",
+      "crates/app/Cargo.toml",
+      "crates/cache/Cargo.toml",
+      "crates/context/Cargo.toml",
+      ".venv/lib/python3.14/site-packages/markdown_it/port.yaml",
+      "docker-compose.yml",
+      "infra/docker-compose.yml",
+      ".env"
+    ]
+  },
+  "archive_candidates": {
+    "cache_files": [
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/iniconfig/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pytest/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/filters/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/formatters/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/lexers/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/styles/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_backends/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/streams/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_code/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_py/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/mark/__pycache__",
+      "_production_archive/cache/.ruff_cache",
+      "_production_archive/cache/crates/frontend/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/tinyglobby/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/next/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-config-next/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-import-resolver-node/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-plugin-import/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-plugin-react/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/fast-glob/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/is-bun-module/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-module-utils/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/tsconfig-paths/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/sharp/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/ajv-formats/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/d3-sankey/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/cytoscape-fcose/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/katex/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/d3-dsv/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/chevrotain/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/parse-entities/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@chevrotain/cst-dts-gen/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@chevrotain/gast/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@modelcontextprotocol/sdk/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v4/cjs/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v4/esm/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v4/types/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v3/cjs/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v3/esm/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/zod-to-json-schema/dist-test-v3/types/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@radix-ui/react-dialog/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@radix-ui/react-dismissable-layer/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@radix-ui/react-primitive/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@radix-ui/react-focus-scope/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@radix-ui/react-portal/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-plugin-react/node_modules/resolve/test/shadowed_core/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/eslint-plugin-react/node_modules/resolve/test/resolver/symlinked/_/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/resolve/test/shadowed_core/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/resolve/test/resolver/symlinked/_/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@eslint-community/eslint-utils/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@typescript-eslint/typescript-estree/node_modules",
+      "_production_archive/cache/crates/frontend/node_modules/@typescript-eslint/eslint-plugin/node_modules",
+      "_production_archive/cache/crates/frontend/.next",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/__pycache__/_virtualenv.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/__pycache__/py.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_extension.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/console.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_null_file.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/errors.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/themes.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/default_styles.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/style.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/color.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_palettes.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/palette.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/color_triplet.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/repr.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/terminal_theme.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/theme.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_emoji_replace.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_emoji_codes.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_export_format.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_fileno.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_log_render.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/text.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_loop.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_pick.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_wrap.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/cells.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_cell_widths.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/align.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/constrain.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/jupyter.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/segment.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/measure.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/protocol.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/containers.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/control.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/emoji.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/highlighter.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/markup.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/pager.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/pretty.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/abc.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/region.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/scope.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/panel.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/box.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/padding.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/table.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_ratio.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/screen.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/styled.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/progress.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/filesize.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/live.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/file_proxy.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/ansi.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/live_render.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/progress_bar.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/spinner.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/rich/__pycache__/_spinners.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/converters.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_compat.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_make.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_config.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/setters.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/exceptions.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/filters.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/validators.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_cmp.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_funcs.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_next_gen.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/attr/__pycache__/_version_info.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pytest/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/iniconfig/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/iniconfig/__pycache__/exceptions.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/iniconfig/__pycache__/_parse.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/plugin.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/util.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/formatter.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/token.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/console.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/filter.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/lexer.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/regexopt.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/modeline.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/__pycache__/unistring.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/styles/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/styles/__pycache__/_mapping.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/lexers/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/lexers/__pycache__/diff.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/lexers/__pycache__/_mapping.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/lexers/__pycache__/python.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/formatters/__pycache__/_mapping.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/formatters/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/formatters/__pycache__/terminal.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pygments/filters/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_hooks.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_result.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_tracing.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_manager.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_warnings.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_version.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/pluggy/__pycache__/_callers.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__/__init__.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__/to_thread.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__/lowlevel.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__/from_thread.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/__pycache__/pytest_plugin.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/streams/__pycache__/__init__.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/streams/__pycache__/stapled.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/streams/__pycache__/tls.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/streams/__pycache__/memory.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/__init__.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_eventloop.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_resources.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_streams.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_sockets.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_tasks.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_testing.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/abc/__pycache__/_subprocesses.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/__init__.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_contextmanagers.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_eventloop.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_exceptions.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_fileio.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_typedattr.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_synchronization.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_testing.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_tasks.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_resources.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_signals.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_sockets.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_streams.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_subprocesses.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_core/__pycache__/_tempfile.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_backends/__pycache__/__init__.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_backends/__pycache__/_asyncio.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/anyio/_backends/__pycache__/_trio.cpython-314-pytest-9.0.2.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/_version.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/compat.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/deprecated.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/warning_types.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/outcomes.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/pathlib.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/hookspec.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/stash.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/fixtures.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/nodes.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/scope.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/raises.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/main.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/reports.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/runner.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/timing.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/_argcomplete.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/helpconfig.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/terminal.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/cacheprovider.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/capture.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/debugging.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/doctest.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/python.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/freeze_support.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/python_api.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/legacypath.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/monkeypatch.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/tmpdir.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/pytester.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/recwarn.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/subtests.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/logging.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/unittest.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/skipping.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/pastebin.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/junitxml.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/setupplan.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/setuponly.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/stepwise.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/unraisableexception.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/tracemalloc.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/threadexception.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/warnings.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/__pycache__/faulthandler.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/mark/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/mark/__pycache__/expression.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/mark/__pycache__/structures.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__/compat.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__/exceptions.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__/findpaths.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/config/__pycache__/argparsing.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__/util.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__/rewrite.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__/truncate.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_py/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_py/__pycache__/error.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_py/__pycache__/path.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__/terminalwriter.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__/wcwidth.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__/saferepr.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_io/__pycache__/pprint.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_code/__pycache__/__init__.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_code/__pycache__/source.cpython-314.pyc",
+      "_production_archive/cache/.venv/lib/python3.14/site-packages/_pytest/_code/__pycache__/code.cpython-314.pyc"
+    ],
+    "log_files": [
+      "_production_archive/logs/tool_list_error.log",
+      "_production_archive/logs/search_Antigravity_library.log",
+      "_production_archive/logs/search_rust_async_executor.log",
+      "_production_archive/logs/search_monitor_log_files.log",
+      "_production_archive/logs/search_react_hooks_useMemo.log",
+      "_production_archive/logs/search_python_data_science.log",
+      "_production_archive/logs/search_kubernetes_operator_pattern.log",
+      "_production_archive/logs/search_docker_compose_networking.log",
+      "_production_archive/logs/search_linux_kernel_modules.log",
+      "_production_archive/logs/search_machine_learning_ranking.log",
+      "_production_archive/logs/search_mcp_protocol_specification.log",
+      "_production_archive/logs/search_stress_0.log",
+      "_production_archive/logs/search_stress_1.log",
+      "_production_archive/logs/search_stress_2.log",
+      "_production_archive/logs/search_stress_3.log",
+      "_production_archive/logs/search_stress_4.log",
+      "_production_archive/logs/search_stress_5.log",
+      "_production_archive/logs/search_stress_6.log",
+      "_production_archive/logs/search_stress_7.log",
+      "_production_archive/logs/search_stress_8.log",
+      "_production_archive/logs/search_stress_9.log",
+      "_production_archive/logs/docker_build.log",
+      "_production_archive/logs/infra/build.log",
+      "_production_archive/logs/infra/mcp.log",
+      "_production_archive/logs/infra/frontend.log",
+      "_production_archive/logs/docs/history/reports/cycle_011/server.log",
+      "_production_archive/logs/docs/history/reports/cycle_012/build.log",
+      "_production_archive/logs/docs/history/reports/cycle_014/server.log",
+      "_production_archive/logs/crates/frontend/build_output.log",
+      "_production_archive/logs/crates/frontend/tsc_errors.log",
+      "_production_archive/logs/crates/frontend/full_build.log",
+      "_production_archive/logs/crates/frontend/.next-clean/dev/logs/next-development.log",
+      "_production_archive/logs/logs/mcp_smoke/stderr.log",
+      "_production_archive/logs/logs/mcp_smoke/stdout.log"
+    ],
+    "legacy_files": [],
+    "research_files": [
+      "_production_archive/research/research_q1.json",
+      "_production_archive/research/research_q2.json",
+      "_production_archive/research/research_q3.json",
+      "_production_archive/research/docs/history/research_dump_2.txt",
+      "_production_archive/research/docs/history/research_dump.txt",
+      "_production_archive/research/docs/history/research_results.md",
+      "_production_archive/research/tests/variant_research.sh",
+      "_production_archive/research/PROTOBUF_DECODER_RESEARCH.md"
+    ]
+  },
+  "actions_taken": [
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/anyio/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pluggy/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pygments/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/iniconfig/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pytest/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/attr/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/rich/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pygments/filters/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pygments/formatters/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pygments/lexers/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/pygments/styles/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/anyio/_backends/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/anyio/_core/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/anyio/abc/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/anyio/streams/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/_code/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/_io/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/_py/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/assertion/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/config/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .venv/lib/python3.14/site-packages/_pytest/mark/__pycache__ to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved .ruff_cache to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/node_modules to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/.next to cache",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved tool_list_error.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_Antigravity_library.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_rust_async_executor.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_monitor_log_files.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_react_hooks_useMemo.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_python_data_science.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_kubernetes_operator_pattern.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_docker_compose_networking.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_linux_kernel_modules.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_machine_learning_ranking.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_mcp_protocol_specification.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_0.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_1.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_2.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_3.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_4.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_5.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_6.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_7.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_8.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved search_stress_9.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docker_build.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved infra/build.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved infra/mcp.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved infra/frontend.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved logs/mcp_smoke/stderr.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved logs/mcp_smoke/stdout.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/build_output.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/tsc_errors.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/full_build.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved crates/frontend/.next-clean/dev/logs/next-development.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/reports/cycle_011/server.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/reports/cycle_012/build.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/reports/cycle_014/server.log to logs",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved research_q1.json to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved research_q2.json to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved research_q3.json to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/research_dump_2.txt to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/research_dump.txt to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved docs/history/research_results.md to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved tests/variant_research.sh to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    },
+    {
+      "action": "ARCHIVE",
+      "details": "Moved PROTOBUF_DECODER_RESEARCH.md to research",
+      "timestamp": "/home/toxic/development/github-advanced-search-mcp"
+    }
+  ],
+  "recommendations": [
+    "Archive cache files to reduce repository size",
+    "Archive log files for historical reference"
+  ]
+}

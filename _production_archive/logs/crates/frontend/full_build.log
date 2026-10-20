@@ -1,0 +1,23 @@
+
+> frontend@0.1.0 build
+> next build
+
+▲ Next.js 16.1.0 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 21.7s
+  Running TypeScript ...
+Failed to compile.
+
+./hooks/useInstantSearch.ts:89:17
+Type error: Type 'string[]' is not assignable to type 'SearchCategory[]'.
+  Type 'string' is not assignable to type 'SearchCategory'.
+
+[0m [90m 87 |[39m             [36mconst[39m response [33m=[39m [36mawait[39m apiClient[33m.[39msearch({
+ [90m 88 |[39m                 query[33m:[39m debouncedQuery[33m,[39m
+[31m[1m>[22m[39m[90m 89 |[39m                 categories[33m:[39m stableCategories[33m,[39m
+ [90m    |[39m                 [31m[1m^[22m[39m
+ [90m 90 |[39m                 per_page[33m:[39m perPage[33m,[39m
+ [90m 91 |[39m                 smart[33m,[39m
+ [90m 92 |[39m                 cluster[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null

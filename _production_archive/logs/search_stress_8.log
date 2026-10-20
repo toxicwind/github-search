@@ -1,0 +1,43 @@
+2026-01-04T10:32:45.267288Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:32:45.271753Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.245527525s before retrying query 'ranking learning machine'
+2026-01-04T10:32:45.407278Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.246352649s before retrying query 'machine learning ranking language:rust'
+2026-01-04T10:32:45.468261Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.468927Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.470434Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.471145Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.494582Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.495159Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.578537Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.782944Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.783424Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:46.001726Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:33:15.066921Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:15.068739Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.248179824s before retrying query 'machine learning ranking'
+2026-01-04T10:33:15.070603Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:15.073015Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.247588013s before retrying query 'machine learning ranking'
+2026-01-04T10:33:44.181740Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.183481Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine learning'
+2026-01-04T10:33:44.190092Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.192062Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine learning'
+2026-01-04T10:33:44.298609Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.300685Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'learning ranking'
+2026-01-04T10:33:44.306325Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.309029Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'learning ranking'
+2026-01-04T10:33:44.398174Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.400233Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine ranking'
+2026-01-04T10:33:44.419215Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.422029Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine ranking'
+2026-01-04T10:33:44.509862Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.511476Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine'
+2026-01-04T10:33:44.555701Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.557587Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'machine'
+2026-01-04T10:33:44.616229Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:33:44.617822Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'machine learning ranking'
+2026-01-04T10:33:44.625499Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.626733Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'machine learning ranking'
+2026-01-04T10:33:44.961063Z  WARN Fracture sub-query timed out: machine learning ranking
+2026-01-04T10:33:45.263055Z  WARN Fracture sub-query timed out: machine learning
+2026-01-04T10:33:45.564708Z  WARN Fracture sub-query timed out: learning ranking
+2026-01-04T10:33:45.864562Z  WARN Fracture sub-query timed out: machine ranking
+2026-01-04T10:33:46.164022Z  WARN Fracture sub-query timed out: machine
+[]

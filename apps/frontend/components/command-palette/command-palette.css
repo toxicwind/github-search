@@ -1,0 +1,207 @@
+/* Command Palette Glassmorphic Styles */
+
+[cmdk-root] {
+    background: rgba(15, 15, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 16px;
+    box-shadow:
+        0 0 40px rgba(139, 92, 246, 0.3),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    max-width: 640px;
+    width: 100%;
+    font-family: var(--font-geist-sans);
+}
+
+[cmdk-overlay] {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayShow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+[cmdk-dialog] {
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0);
+    z-index: 51;
+    animation: dialogShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dialogShow {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+[cmdk-input] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    color: #ffffff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 200ms ease;
+}
+
+[cmdk-input]::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+[cmdk-input]:focus {
+    border-bottom-color: rgba(139, 92, 246, 0.6);
+}
+
+[cmdk-list] {
+    padding: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
+    overscroll-behavior: contain;
+    transition: height 100ms ease;
+    scroll-padding-block-start: 8px;
+    scroll-padding-block-end: 8px;
+}
+
+[cmdk-list]::-webkit-scrollbar {
+    width: 8px;
+}
+
+[cmdk-list]::-webkit-scrollbar-track {
+    background: rgba(139, 92, 246, 0.05);
+    border-radius: 4px;
+}
+
+[cmdk-list]::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 4px;
+}
+
+[cmdk-list]::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.5);
+}
+
+[cmdk-group-heading] {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 12px 12px 8px;
+    user-select: none;
+}
+
+[cmdk-item] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+[cmdk-item]:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+[cmdk-item][data-selected='true'] {
+    background: linear-gradient(90deg,
+            rgba(139, 92, 246, 0.25),
+            rgba(168, 85, 247, 0.15));
+    color: #ffffff;
+    box-shadow:
+        0 0 20px rgba(139, 92, 246, 0.2),
+        inset 0 0 0 1px rgba(139, 92, 246, 0.3);
+}
+
+[cmdk-item][data-selected='true']::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+            rgba(139, 92, 246, 1),
+            rgba(168, 85, 247, 1));
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.8);
+}
+
+[cmdk-item][data-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+[cmdk-item] svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+[cmdk-item][data-selected='true'] svg {
+    opacity: 1;
+}
+
+[cmdk-separator] {
+    height: 1px;
+    background: rgba(139, 92, 246, 0.15);
+    margin: 8px 0;
+}
+
+[cmdk-empty] {
+    padding: 64px 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+}
+
+[cmdk-loading] {
+    padding: 64px 20px;
+    text-align: center;
+    color: rgba(139, 92, 246, 0.7);
+    font-size: 14px;
+}
+
+/* Keyboard shortcut badge */
+.cmdk-shortcut {
+    margin-left: auto;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+    padding: 2px 6px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 4px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}

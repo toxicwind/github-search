@@ -1,0 +1,19 @@
+2026-01-04T10:32:45.349975Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.397992Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.428657Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.841982Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.842372Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:33:15.455722Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:15.463221Z  WARN GitHub rate limit hit (retry 1/3). Waiting 29.242500924s before retrying query 'async executor'
+2026-01-04T10:33:44.567892Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.571082Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'rust executor'
+2026-01-04T10:33:44.572515Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.575935Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'rust'
+2026-01-04T10:33:44.737438Z  WARN Fracture sub-query timed out: rust async executor
+2026-01-04T10:33:44.822229Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:44.828483Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'async executor'
+2026-01-04T10:33:45.043541Z  WARN Fracture sub-query timed out: rust async
+2026-01-04T10:33:45.340336Z  WARN Fracture sub-query timed out: async executor
+2026-01-04T10:33:45.642167Z  WARN Fracture sub-query timed out: rust executor
+2026-01-04T10:33:45.941012Z  WARN Fracture sub-query timed out: rust
+[]

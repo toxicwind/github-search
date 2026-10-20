@@ -1,0 +1,28 @@
+{
+  "name": "github-advanced-search-mcp",
+  "version": "0.4.0",
+  "private": true,
+  "packageManager": "bun@1.3.10",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "bun --watch apps/api/src/server.ts",
+    "dev:mcp": "bun --watch apps/mcp/src/server.ts --mode http",
+    "dev:frontend": "cd apps/frontend && bun run dev",
+    "dev:stack": "bun run dev:mcp & bun run dev:api & bun run dev:frontend",
+    "test:api": "bun test packages/search-core apps/api",
+    "test:mcp": "bun test apps/mcp",
+    "test:stack": "bun test packages/search-core apps/api apps/mcp"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "octokit": "^5.0.5",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
+}

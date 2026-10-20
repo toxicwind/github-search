@@ -1,0 +1,40 @@
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:15:pub struct RankingFeatures {
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:16:    pub text_match_score: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:17:    pub stars: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:18:    pub recency_days: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:19:    pub code_quality: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:20:    pub community_engagement: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:21:    pub bm25: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:22:    pub identifier_score: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:23:    pub language_affinity: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:24:    pub popularity: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:25:    pub commit_recency: f64,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:26:}
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:29:pub struct MLRanker {
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:30:    weights: HashMap<String, f64>,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:31:    feature_history: Vec<(RankingFeatures, f64)>, // (features, actual_relevance)
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:32:    #[cfg(feature = "ltr-xgboost")]
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:33:    #[serde(skip)]
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:34:    ltr_model_path: Option<PathBuf>,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:35:    #[cfg(feature = "ltr-xgboost")]
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:36:    #[serde(skip)]
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:37:    ltr_model: Option<Booster>,
+_archaeology/02-relevance-first/crates/core/src/ml_ranker.rs:38:}
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:21:pub struct RankWeights {
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:22:    pub base: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:23:    pub stars: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:24:    pub recency: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:25:    pub text_match: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:26:    pub readability: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:27:    pub fusion: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:28:    pub context: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:29:    pub rarity: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:30:    pub bm25: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:31:    pub identifier: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:32:    pub popularity: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:33:    pub language_affinity: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:34:    pub commit_recency: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:35:    pub ml: f64,
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:36:}
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:131:pub struct LabeledSample {
+_archaeology/02-relevance-first/crates/core/src/ranking.rs:132:    pub breakdown: ScoreBreakdown,

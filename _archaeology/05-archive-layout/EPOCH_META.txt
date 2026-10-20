@@ -1,0 +1,7 @@
+commit bddf448a46477e5cd7731f7a9aea7826ea610e67
+Author:     toxicwind <toxicwind@gmail.com>
+AuthorDate: Sat Mar 7 02:43:36 2026 -0700
+Commit:     toxicwind <toxicwind@gmail.com>
+CommitDate: Sat Mar 7 02:43:36 2026 -0700
+
+    Archive Rust tree and add headed dev flow

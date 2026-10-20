@@ -1,0 +1,15 @@
+{
+  "id": "cycle_008_web_affordances",
+  "type": "ENHANCEMENT",
+  "source": "research_cycle_007",
+  "requirements": {
+    "css_affordance": "Add sleek loading spinner for htmx transitions",
+    "js_runtime": "Capture search interaction duration",
+    "telemetry": "Log timing events to console/server"
+  },
+  "files": [
+    "crates/app/static/css/styles.css",
+    "crates/app/static/js/app.js"
+  ],
+  "status": "pending"
+}

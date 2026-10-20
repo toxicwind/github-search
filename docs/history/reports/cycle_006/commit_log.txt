@@ -1,0 +1,51 @@
+[main c587b6b] chore(prism): cycle 006 stabilize - consolidation and cleanup
+ 49 files changed, 516 insertions(+), 134 deletions(-)
+ mode change 100644 => 100755 .dockerignore
+ mode change 100644 => 100755 .gitignore
+ create mode 100644 CONSOLIDATION_REPORT.md
+ mode change 100644 => 100755 Cargo.lock
+ mode change 100644 => 100755 Cargo.toml
+ mode change 100644 => 100755 LICENSE
+ mode change 100644 => 100755 README.md
+ mode change 100644 => 100755 crates/app/Cargo.toml
+ mode change 100644 => 100755 crates/app/src/config.rs
+ mode change 100644 => 100755 crates/app/src/main.rs
+ mode change 100644 => 100755 crates/app/src/server.rs
+ mode change 100644 => 100755 crates/app/static/css/styles.css
+ mode change 100644 => 100755 crates/app/static/index.html
+ mode change 100644 => 100755 crates/app/static/js/app.js
+ mode change 100644 => 100755 crates/cache/Cargo.toml
+ mode change 100644 => 100755 crates/cache/src/lib.rs
+ mode change 100644 => 100755 crates/context/Cargo.toml
+ mode change 100644 => 100755 crates/context/src/lib.rs
+ mode change 100644 => 100755 crates/core/Cargo.toml
+ mode change 100644 => 100755 crates/core/src/clustering.rs
+ mode change 100644 => 100755 crates/core/src/lib.rs
+ mode change 100644 => 100755 crates/core/src/llm.rs
+ mode change 100644 => 100755 crates/core/src/regex_expander.rs
+ mode change 100644 => 100755 crates/core/src/self_improver.rs
+ mode change 100644 => 100755 crates/core/src/syntax.rs
+ mode change 100644 => 100755 crates/mcp/Cargo.toml
+ mode change 100644 => 100755 crates/mcp/src/main.rs
+ mode change 100644 => 100755 docker/api.Dockerfile
+ mode change 100644 => 100755 docker/dev.Dockerfile
+ delete mode 100644 docker/legacy.Dockerfile
+ mode change 100644 => 100755 docker/mcp.Dockerfile
+ mode change 100644 => 100755 docs/DESIGN_NOTES.md
+ mode change 100644 => 100755 docs/archive/EMERGENT_TASKS_CYCLE1.md
+ mode change 100644 => 100755 docs/cli-patterns.md
+ mode change 100644 => 100755 docs/pattern-research-dec2025.md
+ mode change 100644 => 100755 docs/self-improver.md
+ mode change 100644 => 100755 infra/docker-compose.yml
+ create mode 100644 reports/cli_surface.md
+ create mode 100644 reports/cycle_005/_start.txt
+ create mode 100644 reports/cycle_005/observed_seed.txt
+ create mode 100644 reports/cycle_005/research/cli_proof.txt
+ create mode 100644 reports/cycle_005/research/help_output.txt
+ create mode 100644 reports/cycle_006/_start.txt
+ create mode 100644 reports/cycle_index.txt
+ create mode 100644 reports/state.json
+ mode change 100644 => 100755 scripts/debug/debug.sh
+ mode change 100644 => 100755 scripts/debug/repro_input.json
+ mode change 100644 => 100755 task.md
+ mode change 100644 => 100755 walkthrough_report.md

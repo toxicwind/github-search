@@ -1,0 +1,69 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 28.30s
+     Running `target/debug/gh-search query 'react hooks useMemo' --limit 2 --no-human`
+2026-01-04T10:28:08.622764Z  WARN ⚠️  Rate limit low: 2/30 (6.666666666666667%) - throttling enabled
+2026-01-04T10:28:08.634363Z  WARN GitHub rate limit hit (retry 1/3). Waiting 38.238383805s before retrying query 'react hooks useMemo'
+2026-01-04T10:28:08.717242Z  WARN ⚠️  Rate limit low: 1/30 (3.3333333333333335%) - throttling enabled
+2026-01-04T10:28:08.729391Z  WARN GitHub rate limit hit (retry 1/3). Waiting 38.237849862s before retrying query 'useMemo hooks react'
+2026-01-04T10:28:08.876364Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.877949Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:08.890013Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.891612Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:08.924091Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.925450Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:08.989111Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.990521Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:08.993722Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.995114Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:08.998289Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:08.999604Z  WARN 🚨 Rate limit exhausted! Reset in 37s
+2026-01-04T10:28:37.478484Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:37.488090Z  WARN GitHub rate limit hit (retry 1/3). Waiting 9.240391167s before retrying query 'react hooks useMemo language:rust'
+2026-01-04T10:28:37.495185Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:37.498889Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:37.499847Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:37.504567Z  WARN GitHub rate limit hit (retry 1/3). Waiting 9.245283946s before retrying query 'react hooks useMemo language:rust'
+2026-01-04T10:28:37.505104Z  WARN GitHub rate limit hit (retry 1/3). Waiting 9.244744228s before retrying query 'react hooks useMemo language:rust'
+2026-01-04T10:28:37.510978Z  WARN GitHub rate limit hit (retry 1/3). Waiting 9.238872265s before retrying query 'react hooks useMemo language:rust type:pr'
+2026-01-04T10:28:37.570451Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:37.585336Z  WARN GitHub rate limit hit (retry 1/3). Waiting 9.235114151s before retrying query 'react hooks useMemo language:rust type:issue'
+2026-01-04T10:28:46.689652Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.693445Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react hooks useMemo'
+2026-01-04T10:28:46.694556Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.695674Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.697397Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react hooks useMemo'
+2026-01-04T10:28:46.698683Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.700008Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.701426Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react hooks'
+2026-01-04T10:28:46.702035Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react hooks'
+2026-01-04T10:28:46.703295Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'hooks useMemo'
+2026-01-04T10:28:46.810460Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.812649Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react useMemo'
+2026-01-04T10:28:46.813141Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.814929Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'hooks useMemo'
+2026-01-04T10:28:46.822032Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.823388Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.825792Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react'
+2026-01-04T10:28:46.826195Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react'
+2026-01-04T10:28:46.829953Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.830916Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'react useMemo'
+2026-01-04T10:28:52.054471Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:52.058459Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.246004286s before retrying query 'react hooks useMemo'
+2026-01-04T10:28:52.061002Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.064269Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.246732406s before retrying query 'react hooks'
+2026-01-04T10:28:52.074099Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.076980Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.247117493s before retrying query 'hooks useMemo'
+2026-01-04T10:28:52.083498Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:52.087709Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.245790317s before retrying query 'react hooks'
+2026-01-04T10:28:52.092268Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.095191Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.247074401s before retrying query 'react hooks useMemo'
+2026-01-04T10:29:08.248164Z  WARN Fracture sub-query timed out: react hooks useMemo
+2026-01-04T10:29:08.554748Z  WARN Fracture sub-query timed out: react hooks
+2026-01-04T10:29:08.853477Z  WARN Fracture sub-query timed out: hooks useMemo
+2026-01-04T10:29:09.155079Z  WARN Fracture sub-query timed out: react useMemo
+2026-01-04T10:29:09.454654Z  WARN Fracture sub-query timed out: react
+[]

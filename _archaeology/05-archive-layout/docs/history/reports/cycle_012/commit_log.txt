@@ -1,0 +1,2 @@
+[main 3d9c4eb] fix(api): alias 'q' to 'query' param (cycle 012)
+ 1 file changed, 2 insertions(+), 2 deletions(-)

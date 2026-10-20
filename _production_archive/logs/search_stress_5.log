@@ -1,0 +1,29 @@
+2026-01-04T10:32:45.186562Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.309177Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:32:45.315986Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.243191524s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:32:45.432074Z  WARN ⚠️  Rate limit low: 2/30 (6.666666666666667%) - throttling enabled
+2026-01-04T10:32:45.460159Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.460694Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.473652Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.479837Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.480489Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.491341Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.491901Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.616419Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.617144Z  WARN 🚨 Rate limit exhausted! Reset in 58s
+2026-01-04T10:32:45.618331Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.631184Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.636789Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.231541808s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:32:45.740259Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:32:45.758288Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.769481Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.238806433s before retrying query 'kubernetes operator pattern language:rust'
+2026-01-04T10:32:45.856890Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:32:45.868031Z  WARN GitHub rate limit hit (retry 1/3). Waiting 59.2388597s before retrying query 'kubernetes operator pattern language:rust type:issue'
+2026-01-04T10:33:14.970444Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:33:14.972840Z  WARN GitHub rate limit hit (retry 1/3). Waiting 30.247603175s before retrying query 'kubernetes operator pattern'
+2026-01-04T10:33:44.856357Z  WARN Fracture sub-query timed out: kubernetes operator pattern
+2026-01-04T10:33:45.158101Z  WARN Fracture sub-query timed out: kubernetes operator
+2026-01-04T10:33:45.458985Z  WARN Fracture sub-query timed out: operator pattern
+2026-01-04T10:33:45.758504Z  WARN Fracture sub-query timed out: kubernetes pattern
+2026-01-04T10:33:46.058290Z  WARN Fracture sub-query timed out: kubernetes
+[]

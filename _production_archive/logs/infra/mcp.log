@@ -1,0 +1,5 @@
+gh-search-mcp: ✓ GITHUB_TOKEN loaded (len: 40)
+2025-12-27T18:27:56.185608Z  INFO 👻 Ghost Log Monitor active. Watching: ["infra/frontend.log", "infra/mcp.log"]
+2025-12-27T18:27:56.185714Z  INFO Disk cache initialized
+2025-12-27T18:27:56.185721Z  INFO Initializing SmartRequestQueue: limit=5000, max_concurrent=10
+gh-search-mcp: 🌐 Starting HTTP Gateway on port 16101

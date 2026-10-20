@@ -1,0 +1,128 @@
+# GitHub Search Results
+
+## 1. Issue/PR: #220: feat: add jira:sync-github command
+- **URL**: https://github.com/openshift-eng/ai-helpers/pull/220
+- **Readability**: 0.0/4.0
+- **Description**: open by Cali0707
+
+### Content Snippet
+```
+## What this PR does / why we need it:
+
+Many of us work with issues in upstream github communities as well as in JIRA, and it can be a lot to keep those two systems in sync. This PR adds a flow
+```
+
+---
+
+**Summary**: Found 1 results across 1 categories.
+# GitHub Search Results
+
+## 1. Issue/PR: #9: `list_tools` returns empty when connecting to MetaMCP via mcp-proxy (SSE)
+- **URL**: https://github.com/universal-tool-calling-protocol/code-mode/issues/9
+- **Readability**: 0.0/4.0
+- **Description**: open by mehmetbaykar
+
+### Content Snippet
+```
+**Description**
+
+I am running a self-hosted instance of **MetaMCP** which aggregates approximately 10 different MCP servers. I am attempting to connect **Code Mode** to this MetaMCP instance to give t
+```
+
+---
+## 2. Code Snippet: hetaoBackend/mcp-github-trending :: src/mcp_server_github_trending/server.py
+- **URL**: https://github.com/hetaoBackend/mcp-github-trending/blob/9a238db833a38f170cdcbb49e98c1e6b2dbe2660/src/mcp_server_github_trending/server.py
+- **Readability**: 2.3/4.0
+- **Description**: server.py
+
+### Content Snippet
+```
+from enum import Enum
+import json
+from typing import Sequence
+
+from mcp.server import Server
+from mcp.server.stdio import stdio_server
+from mcp.types import Tool, TextContent, ImageContent, EmbeddedResource
+from gtrending import fetch_repos, fetch_developers
+
+
+class ToolName(Enum):
+    GET_REPOSITORIES = "get_github_trending_repositories"
+    GET_DEVELOPERS = "get_github_trending_developers"
+
+
+async def serve() -> None:
+    server = Server("mcp-github-trending")
+
+    @server.list_tools()
+    async def list_tools() -> list[Tool]:
+        """List available github trending tools."""
+        return [
+            Tool(
+                name=ToolName.GET_REPOSITORIES.value,
+                description="Get trending repositories on github",
+                inputSchema={
+                    "type": "object",
+                    "properties": {
+...[elided]...
+```
+
+---
+
+**Summary**: Found 2 results across 2 categories.
+# GitHub Search Results
+
+## 1. Issue/PR: #25: enhancement: Add GitHub CLI integration for reliable repository content access
+- **URL**: https://github.com/shrwnsan/vibekit-claude-plugins/issues/25
+- **Readability**: 0.0/4.0
+- **Description**: open by shrwnsan
+
+### Content Snippet
+```
+# GitHub Issue: enhancement: Add GitHub CLI integration for reliable repository content access
+
+## Summary
+Add GitHub CLI (gh) integration to search-plus plugin to enable reliable, efficient access to
+```
+
+---
+## 2. Code Snippet: jbranchaud/til :: README.md
+- **URL**: https://github.com/jbranchaud/til/blob/676038e9922d45c8c56d188e1e1b0cf87c73f80d/README.md
+- **Readability**: 1.3/4.0
+- **Description**: README.md
+
+### Content Snippet
+```
+# TIL
+
+> Today I Learned
+
+A collection of concise write-ups on small things I learn day to day across a
+variety of languages and technologies. These are things that don't really
+warrant a full blog post. These are things I've picked up by [Learning In
+Public™](https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9) and
+pairing with smart people at Hashrocket.
+
+...[elided]...
+### Devops
+
+- [Aliasing An Ansible Host](devops/aliasing-an-ansible-host.md)
+- [Allow Cross-Origin Requests To Include Cookies](devops/allow-cross-origin-requests-to-include-cookies.md)
+- [Allow HTTPS Through Your UFW Firewall](devops/allow-https-through-your-ufw-firewall.md)
+- [Check For Cached Site Assocation File For iOS](devops/check-for-cached-site-association-file-for-ios.md)
+- [Check The Status of All Services](devops/check-the-status-of-all-services.md)
+- [Check The Syntax Of nginx Files](devops/check-the-syntax-of-nginx-files.md)
+- [Connect To An RDS PostgreSQL Database](devops/connect-to-an-rds-postgresql-database.md)
+- [Default Rails Deploy Script On Hatchbox](devops/default-rails-deploy-script-on-hatchbox.md)
+- [Determine The IP Address Of A Domain](devops/determine-the-ip-address-of-a-domain.md)
+- [Hatchbox Exports Env Vars With asdf](devops/hatchbox-exports-env-vars-with-asdf.md)
+- [Path Of The Packets](devops/path-of-the-packets.md)
+- [Push Non-master Branch To Heroku](devops/push-non-master-branch-to-heroku.md)
+- [Reload The nginx Configuration](devops/reload-the-nginx-configuration.md)
+...[elided]...
+```
+
+---
+
+**Summary**: Found 2 results across 2 categories.

@@ -1,0 +1,14 @@
+commit 5a7000318fd54459ebb8b433f5911a675da9d530
+Author:     toxicwind <toxicwind@gmail.com>
+AuthorDate: Sat Jan 3 12:38:39 2026 -0700
+Commit:     toxicwind <toxicwind@gmail.com>
+CommitDate: Sat Jan 3 12:38:39 2026 -0700
+
+    fix(ranking): RELEVANCE-FIRST scoring - text_match=3.5, popularity=0.4
+    
+    - Rebalanced experimental_default() weights to prioritize text match over popularity
+    - Added query term detection to repo_breakdown() so repos get proper text_match scores
+    - Fixed issue where Binance websocket libs ranked higher than actual Nitrado code
+    - Updated README with new scoring matrix documentation
+    
+    Breaking: Results now prioritize relevance over star count

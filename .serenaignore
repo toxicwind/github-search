@@ -1,0 +1,65 @@
+# .serenaignore
+# Files and directories ignored by Serena (but visible to agents and VSCode)
+
+# Build caches
+.next-clean/
+.next/
+.turbo/
+node_modules/
+target/
+dist/
+out/
+
+# Large data
+.fastembed_cache/
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+server.log
+
+# Temporary
+*.tmp
+temp_*
+
+# Reports
+reports/
+
+# Explicitly NOT ignored (always visible to Serena)
+!AGENTS.md
+!AI_CONTEXT.md
+!README.md
+!FIXES_APPLIED.md
+!MCP_VSCODE_SETUP.md
+!patterns.jsonl
+!vendor_manifest.json
+!manifest.json
+!test_emergent_features.py
+!verification_output.jsonl
+!verify-all.sh
+!verify-stack.sh
+!start-mesh.sh
+!Justfile
+!Dockerfile
+!docker-compose.yml
+!docker-compose.dev.yml
+!bootstrap_chronos.sh
+!init_out.txt
+!dev.sh
+!bin/
+!scripts/
+!docs/
+!env/
+!certs/
+!config/
+!data/
+!logs/
+!state/
+!tests/
+!src/
+!smoketest/

@@ -1,0 +1,15 @@
+{
+  "name": "@ghas/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "start": "bun src/server.ts"
+  },
+  "dependencies": {
+    "@ghas/contracts": "workspace:*",
+    "@ghas/github-client": "workspace:*",
+    "@ghas/search-core": "workspace:*"
+  }
+}

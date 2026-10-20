@@ -1,0 +1,114 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 613B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.43kB done
+#2 DONE 0.0s
+
+#3 resolve image config for docker-image://docker.io/docker/dockerfile:1.4
+#3 DONE 0.2s
+
+#4 docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84ced81e24ef1a0dbc
+#4 CACHED
+
+#5 [internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.0s
+
+#6 [internal] load metadata for docker.io/rustlang/rust:nightly-slim
+#6 DONE 0.0s
+
+#7 [internal] load metadata for docker.io/library/node:20.11-bookworm-slim
+#7 DONE 0.1s
+
+#8 [stage-2 1/4] FROM docker.io/library/node:20.11-bookworm-slim@sha256:357deca6eb61149534d32faaf5e4b2e4fa3549c2be610ee1019bf340ea8c51ec
+#8 DONE 0.0s
+
+#9 [planner 1/6] FROM docker.io/rustlang/rust:nightly-slim
+#9 DONE 0.0s
+
+#10 [stage-2 2/4] WORKDIR /app
+#10 CACHED
+
+#11 [stage-2 3/4] RUN apt-get update && apt-get install -y ca-certificates curl && rm -rf /var/lib/apt/lists/*
+#11 CACHED
+
+#12 [internal] load build context
+#12 transferring context: 30.10MB 1.9s done
+#12 DONE 2.0s
+
+#13 [planner 3/6] RUN cargo install cargo-chef
+#13 CACHED
+
+#14 [planner 2/6] WORKDIR /app
+#14 CACHED
+
+#15 [planner 4/6] COPY Cargo.toml Cargo.lock ./
+#15 CACHED
+
+#16 [planner 5/6] COPY crates ./crates
+#16 DONE 6.5s
+
+#17 [planner 6/6] RUN cargo chef prepare --recipe-path recipe.json
+#17 DONE 0.3s
+
+#18 [builder 6/8] RUN --mount=type=cache,target=/usr/local/cargo/registry     --mount=type=cache,target=/usr/local/cargo/git     cargo chef cook --release --recipe-path recipe.json
+#18 CACHED
+
+#19 [builder 7/8] COPY . .
+#19 DONE 7.0s
+
+#20 [builder 8/8] RUN --mount=type=cache,target=/usr/local/cargo/registry     cargo build --release &&     strip target/release/gh-search-mcp
+#20 0.607    Compiling proc-macro2 v1.0.103
+#20 0.607    Compiling unicode-ident v1.0.22
+#20 0.607    Compiling quote v1.0.42
+#20 0.607    Compiling libc v0.2.177
+#20 0.607    Compiling cfg-if v1.0.4
+#20 0.607    Compiling find-msvc-tools v0.1.5
+#20 0.607    Compiling shlex v1.3.0
+#20 0.609    Compiling memchr v2.7.6
+#20 0.610    Compiling pin-project-lite v0.2.16
+#20 0.621    Compiling once_cell v1.21.3
+#20 0.628    Compiling value-bag v1.12.0
+#20 0.631    Compiling futures-core v0.3.31
+#20 0.631    Compiling version_check v0.9.5
+#20 0.631    Compiling autocfg v1.5.0
+#20 0.631    Compiling crossbeam-utils v0.8.21
+#20 0.631    Compiling typenum v1.19.0
+#20 0.631    Compiling pkg-config v0.3.32
+#20 0.631    Compiling serde_core v1.0.228
+#20 0.631    Compiling futures-io v0.3.31
+#20 0.631    Compiling itoa v1.0.15
+#20 0.682    Compiling slab v0.4.11
+#20 0.725    Compiling bitflags v2.10.0
+#20 0.775    Compiling vcpkg v0.2.15
+#20 0.795 error: linker `clang` not found
+#20 0.795   |
+#20 0.795   = note: No such file or directory (os error 2)
+#20 0.795 
+#20 0.796    Compiling serde v1.0.228
+#20 0.851 error: could not compile `quote` (build script) due to 1 previous error
+#20 0.851 warning: build failed, waiting for other jobs to finish...
+#20 0.943 error: could not compile `proc-macro2` (build script) due to 1 previous error
+#20 0.962 error: could not compile `crossbeam-utils` (build script) due to 1 previous error
+#20 1.016 error: could not compile `libc` (build script) due to 1 previous error
+#20 1.019 error: could not compile `serde_core` (build script) due to 1 previous error
+#20 1.115 error: could not compile `serde` (build script) due to 1 previous error
+#20 1.171 error: could not compile `typenum` (build script) due to 1 previous error
+#20 ERROR: process "/bin/sh -c cargo build --release &&     strip target/release/gh-search-mcp" did not complete successfully: exit code: 101
+------
+ > [builder 8/8] RUN --mount=type=cache,target=/usr/local/cargo/registry     cargo build --release &&     strip target/release/gh-search-mcp:
+0.795 
+0.796    Compiling serde v1.0.228
+0.851 error: could not compile `quote` (build script) due to 1 previous error
+0.851 warning: build failed, waiting for other jobs to finish...
+0.943 error: could not compile `proc-macro2` (build script) due to 1 previous error
+0.962 error: could not compile `crossbeam-utils` (build script) due to 1 previous error
+1.016 error: could not compile `libc` (build script) due to 1 previous error
+1.019 error: could not compile `serde_core` (build script) due to 1 previous error
+1.115 error: could not compile `serde` (build script) due to 1 previous error
+1.171 error: could not compile `typenum` (build script) due to 1 previous error
+------
+failed to solve: process "/bin/sh -c cargo build --release &&     strip target/release/gh-search-mcp" did not complete successfully: exit code: 101
+

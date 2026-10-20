@@ -1,0 +1,73 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 52.74s
+     Running `target/debug/gh-search query 'docker compose networking' --limit 2 --no-human`
+2026-01-04T10:28:32.228769Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.237935Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.2408093s before retrying query 'docker compose networking'
+2026-01-04T10:28:32.251851Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.255605Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.258547Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:32.259261Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.249284801s before retrying query 'docker compose networking type:pr'
+2026-01-04T10:28:32.259800Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.248745683s before retrying query 'docker compose networking type:issue'
+2026-01-04T10:28:32.260445Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.248100815s before retrying query 'docker compose networking'
+2026-01-04T10:28:32.263956Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.269519Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.244437723s before retrying query 'docker compose networking'
+2026-01-04T10:28:32.350699Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.355291Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.245403047s before retrying query 'networking compose docker type:issue'
+2026-01-04T10:28:32.369452Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.376385Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.243063032s before retrying query 'networking compose docker'
+2026-01-04T10:28:32.377617Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.382624Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.244997263s before retrying query 'networking compose docker'
+2026-01-04T10:28:32.383946Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:32.388789Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.245161101s before retrying query 'networking compose docker type:pr'
+2026-01-04T10:28:32.390020Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:32.395633Z  WARN GitHub rate limit hit (retry 1/3). Waiting 14.244387164s before retrying query 'networking compose docker'
+2026-01-04T10:28:46.600034Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.602079Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:28:46.629780Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.631397Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'docker compose networking language:rust type:issue'
+2026-01-04T10:28:46.632402Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.633600Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:28:46.634026Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.635799Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:28:46.639545Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.641144Z  WARN GitHub rate limit hit (retry 1/3). Waiting 5.25s before retrying query 'docker compose networking language:rust type:pr'
+2026-01-04T10:28:46.712525Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.715839Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'docker compose networking'
+2026-01-04T10:28:46.740297Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:46.742791Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'docker compose networking'
+2026-01-04T10:28:46.767474Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.770430Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'docker compose networking'
+2026-01-04T10:28:46.776748Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.778257Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'docker compose networking type:issue'
+2026-01-04T10:28:46.783932Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:46.784982Z  WARN GitHub rate limit hit (retry 2/3). Waiting 5.25s before retrying query 'docker compose networking type:pr'
+2026-01-04T10:28:51.965542Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:51.968575Z  WARN GitHub rate limit hit (retry 2/3). Waiting 56.246962373s before retrying query 'networking compose docker type:issue'
+2026-01-04T10:28:51.985604Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:51.987516Z  WARN GitHub rate limit hit (retry 2/3). Waiting 56.248084178s before retrying query 'networking compose docker'
+2026-01-04T10:28:51.994706Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:51.996649Z  WARN GitHub rate limit hit (retry 2/3). Waiting 56.248055715s before retrying query 'networking compose docker type:pr'
+2026-01-04T10:28:51.997893Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.000818Z  WARN GitHub rate limit hit (retry 2/3). Waiting 56.247074498s before retrying query 'networking compose docker'
+2026-01-04T10:28:52.021565Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:52.023675Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.247886872s before retrying query 'networking compose docker'
+2026-01-04T10:28:52.094074Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:52.096614Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.247458293s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:28:52.100582Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.102615Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.24797s before retrying query 'docker compose networking language:rust type:issue'
+2026-01-04T10:28:52.135232Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.137041Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.248186151s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:28:52.147791Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.150154Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.247633739s before retrying query 'docker compose networking language:rust type:pr'
+2026-01-04T10:28:52.154091Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:52.155846Z  WARN GitHub rate limit hit (retry 2/3). Waiting 55.248244446s before retrying query 'docker compose networking language:rust'
+2026-01-04T10:29:32.184164Z  WARN Fracture sub-query timed out: docker compose networking
+2026-01-04T10:29:32.486089Z  WARN Fracture sub-query timed out: docker compose
+2026-01-04T10:29:32.786707Z  WARN Fracture sub-query timed out: compose networking
+2026-01-04T10:29:33.085512Z  WARN Fracture sub-query timed out: docker networking
+2026-01-04T10:29:33.387149Z  WARN Fracture sub-query timed out: docker
+[]

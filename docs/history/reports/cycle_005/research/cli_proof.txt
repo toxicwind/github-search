@@ -1,0 +1,68 @@
+# GitHub Search Results
+
+## 1. Repository: textstat/textstat
+- **URL**: https://github.com/textstat/textstat
+- **Readability**: 0.0/4.0
+- **Description**: :memo: python package to calculate readability statistics of a text object - paragraphs, sentences, articles.
+
+### Content Snippet
+```
+:memo: python package to calculate readability statistics of a text object - paragraphs, sentences, articles.
+```
+
+---
+## 2. Code Snippet: ShinyaAkagiI/calculate_readability :: calculate_readability.py
+- **URL**: https://github.com/ShinyaAkagiI/calculate_readability/blob/8623dc7c11e383030dbc1be678cef8dcf47a0555/calculate_readability.py
+- **Readability**: 3.8/4.0
+- **Description**: calculate_readability.py
+
+### Content Snippet
+```
+import re
+import math
+from divide_char_type import divide_char_type
+from count_syllable import count_syllable
+
+def jfre(sentence, sentence_type):
+    asl_sum = len(sentence)
+    asw_sum = 0
+    for i in range(len(sentence_type)):
+        # 単語がアルファベットの場合
+...[elided]...
+def jsmog(sentence, sentence_type):
+    ps = 0
+    for i in range(len(sentence_type)):
+        # 単語がアルファベットの場合
+        if sentence_type[i] == 3:
+            if count_syllable(sentence[i]) >= 3:
+                ps += 1
+        # 単語が漢字の場合
+        elif sentence_type[i] == 2:
+            if len(sentence[i]) >= 3:
+                ps += 1
+    result = 1.031*math.sqrt(30*ps)+3.1291
+    return result
+
+
+def calculate_readability(document):
+    re_break = re.compile("\r?\n")          # 段落の正規表現
+    re_point = re.compile("[.．…。!?！？]") # 句点の正規表現
+
+    # URLの置換
+    re_url = re.compile(r"https?://[-0-9a-zA-Z+&@#/%?=~\.\_]+")
+    text = re.sub(re_url, "url", document)
+
+    # mailの置換
+    re_mail = re.compile(r"[^@]+@[^@]+")
+...[elided]...
+```
+
+---
+## 3. Issue/PR: #3: Updated Test 1 (PR 1)
+- **URL**: https://github.com/sk-nv06/python-code-review-test/pull/3
+- **Readability**: 0.0/4.0
+- **Description**: open by sk-nv06
+
+---
+
+**Summary**: Found 3 results across 3 categories.

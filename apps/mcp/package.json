@@ -1,0 +1,16 @@
+{
+  "name": "@ghas/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/server.ts --mode http",
+    "start": "bun src/server.ts --mode http"
+  },
+  "dependencies": {
+    "@ghas/contracts": "workspace:*",
+    "@ghas/github-client": "workspace:*",
+    "@ghas/search-core": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.25.1"
+  }
+}

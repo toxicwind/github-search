@@ -1,0 +1,70 @@
+# GitHub Search Results
+
+## 1. Repository: block/goose
+- **URL**: https://github.com/block/goose
+- **Readability**: 0.0/4.0
+- **Description**: an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM
+
+### Content Snippet
+```
+an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM
+```
+
+---
+## 2. Repository: zerocore-ai/microsandbox
+- **URL**: https://github.com/zerocore-ai/microsandbox
+- **Readability**: 0.0/4.0
+- **Description**: opensource self-hosted sandboxes for ai agent
+
+### Content Snippet
+```
+opensource self-hosted sandboxes for ai agent
+```
+
+---
+## 3. Repository: farion1231/cc-switch
+- **URL**: https://github.com/farion1231/cc-switch
+- **Readability**: 0.0/4.0
+- **Description**: A cross-platform desktop All-in-One assistant tool for Claude Code, Codex & Gemini CLI.
+
+### Content Snippet
+```
+A cross-platform desktop All-in-One assistant tool for Claude Code, Codex & Gemini CLI.
+```
+
+---
+## 4. Code Snippet: AstroAir/mcp-hub-next :: src-tauri/src/mcp_registry.rs
+- **URL**: https://github.com/AstroAir/mcp-hub-next/blob/4bebb30fadfb1c8a080514fd0855948f56b42a0b/src-tauri/src/mcp_registry.rs
+- **Readability**: 4.5/4.0
+- **Description**: mcp_registry.rs
+
+### Content Snippet
+```
+use serde::{Deserialize, Serialize};
+use std::{collections::HashSet, process::Command, sync::{Mutex, OnceLock}};
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum InstallationSource { Npm, Github, Local }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct RegistryServerEntry {
+    pub id: String,
+...[elided]...
+fn search_github(query: Option<&str>) -> Vec<RegistryServerEntry> {
+    let q = query.unwrap_or("mcp-server topic:mcp");
+
+    // Attempt to use GitHub CLI for repository search
+    let output = Command::new("gh")
+        .args([
+            "search", "repos", q,
+            "--json", "name,owner,description,url,stargazersCount,updatedAt",
+            "--limit", "50"
+        ])
+        .output();
+...[elided]...
+```
+
+---
+
+**Summary**: Found 4 results across 2 categories.

@@ -1,0 +1,7 @@
+commit d7056854ecc936c455e49ff2f4538121c4892411
+Author:     toxicwind <toxicwind@gmail.com>
+AuthorDate: Tue Jul 14 15:06:05 2026 -0600
+Commit:     toxicwind <toxicwind@gmail.com>
+CommitDate: Tue Jul 14 15:06:05 2026 -0600
+
+    fix(blackbird): always prefer Blackbird for code when session exists

@@ -1,0 +1,33 @@
+%% GitHub Advanced Search MCP — Unified Architecture
+flowchart TB
+    subgraph Interfaces["Interface Layer"]
+        CLI["CLI\n(gh-search)"]
+        API["HTTP API\n(gh-search serve)"]
+        MCP["MCP Server\n(gh-search-mcp)"]
+        Web["Web UI\n(Next.js)"]
+    end
+
+    subgraph Core["Rust Core (gh-search-core)"]
+        Client["GitHubSearchClient"]
+        Features["Regex Expander\n+ Result Clustering\n+ LLM helpers"]
+        Queue["SmartRequestQueue\n(rate-limit & caching brain)"]
+        Cache["Shared Disk Cache"]
+    end
+
+    CLI --> Client
+    API --> Client
+    MCP --> Client
+    Web -->|HTTP| API
+    API --> Web
+
+    Client --> Features
+    Features --> Queue
+    Queue --> Cache
+    Cache --> Client
+
+    Queue -->|"GitHub REST / GraphQL"| GitHub[(GitHub API)]
+    GitHub --> Queue
+
+    Client -->|Search responses| CLI
+    Client -->|JSON & streaming| API
+    Client -->|StdIO tool| MCP

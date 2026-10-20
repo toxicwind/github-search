@@ -1,0 +1,23 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on shared package cache
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.17s
+     Running `target/debug/gh-search query 'monitor log files' --limit 2 --no-human`
+2026-01-04T10:28:15.879359Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:15.880764Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:15.887067Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:15.887617Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:15.889911Z  WARN GitHub rate limit hit (retry 1/3). Waiting 31.247707863s before retrying query 'monitor log files language:rust'
+2026-01-04T10:28:15.897095Z  WARN GitHub rate limit hit (retry 1/3). Waiting 31.240526179s before retrying query 'monitor log files language:rust type:issue'
+2026-01-04T10:28:15.898169Z  WARN GitHub rate limit hit (retry 1/3). Waiting 31.239448346s before retrying query 'monitor log files language:rust'
+2026-01-04T10:28:15.899215Z  WARN GitHub rate limit hit (retry 1/3). Waiting 31.238400557s before retrying query 'monitor log files language:rust type:pr'
+2026-01-04T10:28:46.367821Z  WARN Fracture sub-query timed out: monitor log files
+2026-01-04T10:28:46.675598Z  WARN Fracture sub-query timed out: monitor log
+2026-01-04T10:28:46.978650Z  WARN Fracture sub-query timed out: log files
+2026-01-04T10:28:47.280564Z  WARN Fracture sub-query timed out: monitor files
+2026-01-04T10:28:47.476261Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:47.478625Z  WARN GitHub rate limit hit (retry 1/3). Waiting 60.247629948s before retrying query 'monitor'
+2026-01-04T10:28:47.576388Z  WARN Fracture sub-query timed out: monitor
+[]

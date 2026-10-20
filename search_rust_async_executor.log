@@ -1,0 +1,30 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.86s
+     Running `target/debug/gh-search query 'rust async executor' --limit 2 --no-human`
+2026-01-04T10:27:51.851190Z  WARN GitHub rate limit hit (retry 1/3). Waiting 55.246441911s before retrying query 'rust async executor'
+2026-01-04T10:27:51.998459Z  WARN GitHub rate limit hit (retry 1/3). Waiting 55.240727782s before retrying query 'rustlang async executor'
+2026-01-04T10:27:52.189871Z  WARN Cache write error: No such file or directory (os error 2)
+2026-01-04T10:28:20.926126Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.934462Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:20.935133Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.942705Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.242430386s before retrying query 'rs async executor type:pr'
+2026-01-04T10:28:20.944003Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.241130051s before retrying query 'rs async executor'
+2026-01-04T10:28:20.945220Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.239912599s before retrying query 'rs async executor'
+2026-01-04T10:28:20.955341Z  WARN ⚠️  Rate limit low: 0/30 (0%) - throttling enabled
+2026-01-04T10:28:20.969327Z  WARN GitHub rate limit hit (retry 1/3). Waiting 26.2360177s before retrying query 'rs async executor'
+2026-01-04T10:28:47.498699Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:47.501270Z  WARN GitHub rate limit hit (retry 1/3). Waiting 60.247422656s before retrying query 'async executor'
+2026-01-04T10:28:47.539341Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:47.543469Z  WARN GitHub rate limit hit (retry 1/3). Waiting 60.245869726s before retrying query 'rust executor'
+2026-01-04T10:28:47.562967Z  WARN ⚠️  Rate limit low: 0/10 (0%) - throttling enabled
+2026-01-04T10:28:47.568315Z  WARN GitHub rate limit hit (retry 1/3). Waiting 60.244649994s before retrying query 'rust'
+2026-01-04T10:28:51.610066Z  WARN Fracture sub-query timed out: rust async executor
+2026-01-04T10:28:51.914270Z  WARN Fracture sub-query timed out: rust async
+2026-01-04T10:28:52.215332Z  WARN Fracture sub-query timed out: async executor
+2026-01-04T10:28:52.515215Z  WARN Fracture sub-query timed out: rust executor
+2026-01-04T10:28:52.814523Z  WARN Fracture sub-query timed out: rust
+[]

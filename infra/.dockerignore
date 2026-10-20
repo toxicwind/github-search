@@ -1,0 +1,126 @@
+# ====================
+# Build Artifacts
+# ====================
+target/
+**/target/
+**/*.rs.bk
+*.o
+*.so
+*.dylib
+*.dll
+
+# ====================
+# Dependencies
+# ====================
+node_modules/
+**/node_modules/
+.pnp/
+.pnp.js
+
+# ====================
+# Cache & Temp
+# ====================
+.gh-search-cache/
+.gh_search_cache/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ====================
+# IDE & Editors
+# ====================
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.DS_Store
+Thumbs.db
+
+# ====================
+# Version Control
+# ====================
+.git/
+.gitignore
+.gitattributes
+
+# ====================
+# CI/CD & Infra
+# ====================
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+infra/
+docker/
+scripts/
+
+# ====================
+# Documentation
+# ====================
+*.md
+!README.md
+docs/
+LICENSE
+CHANGELOG*
+
+# ====================
+# Environment & Config
+# ====================
+.env
+.env.*
+!.env.example
+*.local
+
+# ====================
+# Logs & Debug
+# ====================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ====================
+# Test Files
+# ====================
+tests/
+test/
+**/*_test.rs
+**/*.test.ts
+**/*.test.js
+**/*.spec.ts
+**/*.spec.js
+coverage/
+.nyc_output/
+
+# ====================
+# Build Output
+# ====================
+dist/
+build/
+out/
+.next/
+*.tgz
+*.zip
+*.tar.gz
+
+# ====================
+# Compiled Binaries
+# ====================
+gh-search-*
+!gh-search-*/
+github-advanced-search-mcp
+
+# ====================
+# Response Artifacts
+# ====================
+*.json
+!Cargo.json
+!package.json
+!package-lock.json
+!**/Cargo.json
+!tsconfig.json
