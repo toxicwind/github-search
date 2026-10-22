@@ -23,7 +23,9 @@ import { createHash } from "node:crypto";
 
 const HOME = process.env.HOME ?? "/home/toxic";
 const WEB_ROOT = "https://github.com";
-const REFRESH_MS = Number(process.env.GHAS_SESSION_REFRESH_MS ?? String(5 * 60 * 1000));
+const REFRESH_MS = Number(
+  process.env.GHAS_SESSION_REFRESH_MS ?? String(5 * 60 * 1000),
+);
 const COOKIE_NAMES = [
   "user_session",
   "__Host-user_session_same_site",
@@ -222,7 +224,11 @@ export function needsBlackbirdEngine(query: string): boolean {
   // filename: is REST-only on current GitHub (Blackbird: "Unrecognized qualifier")
   if (/\bfilename\s*:/i.test(query) && !/\bpath\s*:\s*\*\*/i.test(query)) {
     // Pure filename: → REST. Mixed with path:** still Blackbird (rewriter handles filename).
-    if (!/\bpath\s*:/i.test(query) && !/\bcontent\s*:/i.test(query) && !/\bsymbol\s*:/i.test(query)) {
+    if (
+      !/\bpath\s*:/i.test(query) &&
+      !/\bcontent\s*:/i.test(query) &&
+      !/\bsymbol\s*:/i.test(query)
+    ) {
       return false;
     }
   }
@@ -282,6 +288,7 @@ export async function searchBlackbirdCode(
       cookie: session.cookie,
       referer: `${WEB_ROOT}/search`,
     },
+    signal: AbortSignal.timeout(15000),
   });
 
   if (!res.ok) {
@@ -366,9 +373,7 @@ export function blackbirdHitToGithubItem(hit: BlackbirdHit) {
       language: hit.language_name,
     },
     score: 1 + (hit.match_count ?? 0),
-    text_matches: snippet
-      ? [{ fragment: snippet, property: "content" }]
-      : [],
+    text_matches: snippet ? [{ fragment: snippet, property: "content" }] : [],
   };
 }
 

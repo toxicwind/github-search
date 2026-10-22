@@ -49,10 +49,18 @@ function loadHomeSecrets() {
 loadHomeSecrets();
 
 const API_ROOT = "https://api.github.com";
-const CACHE_DIR = resolve(process.env.HOME ?? "/home/toxic", ".gh-search-cache");
+const CACHE_DIR = resolve(
+  process.env.HOME ?? "/home/toxic",
+  ".gh-search-cache",
+);
 const SEARCH_PROFILE_VERSION = "2026-08-06-a";
-const REQUEST_INTERVAL_MS = Number(process.env.GHAS_GITHUB_MIN_INTERVAL_MS ?? "150");
+const REQUEST_INTERVAL_MS = Number(
+  process.env.GHAS_GITHUB_REQUEST_INTERVAL_MS ?? "150",
+);
 const RETRY_LIMIT = Number(process.env.GHAS_GITHUB_RETRY_LIMIT ?? "4");
+const REQUEST_TIMEOUT_MS = Number(
+  process.env.GHAS_GITHUB_TIMEOUT_MS ?? "15000",
+);
 const BASE_RETRY_MS = Number(process.env.GHAS_GITHUB_RETRY_BASE_MS ?? "750");
 const SUPPLEMENTAL_ENABLED = process.env.GHAS_SUPPLEMENTAL_QUERIES !== "0";
 const SUPPLEMENTAL_LIMIT = Number(process.env.GHAS_SUPPLEMENTAL_LIMIT ?? "2");
@@ -294,7 +302,7 @@ function strictCategories(categories: SearchCategory[]) {
 function supplementalQueries(query: string) {
   const tokens = tokenize(query).slice(0, 5);
   const extra = new Set<string>();
-  
+
   // Generate hyphenated variants
   if (tokens.length >= 2) {
     for (let i = 0; i < tokens.length - 1; i++) {
@@ -305,18 +313,18 @@ function supplementalQueries(query: string) {
     extra.add(tokens.slice(0, 3).join("-"));
     extra.add(tokens.join("-"));
   }
-  
+
   // Add language-qualified variants for code search
   extra.add(`${query} language:typescript`);
   extra.add(`${query} language:javascript`);
   extra.add(`${query} language:rust`);
   extra.add(`${query} language:go`);
   extra.add(`${query} language:python`);
-  
+
   // Add topic/repo variants
   extra.add(`${query} in:readme`);
   extra.add(`${query} in:description`);
-  
+
   return [...extra].filter((candidate) => candidate.length >= 5).slice(0, 10);
 }
 
@@ -615,7 +623,12 @@ async function fetchGithub(url: URL) {
   let lastError = "";
   for (let attempt = 0; attempt <= RETRY_LIMIT; attempt += 1) {
     await throttleInterval();
-    const response = await fetch(url, { headers: githubHeaders() });
+    // Hard fail-fast per attempt: a stalled upstream must never leave a GHAS
+    // search hung (observed: HTTP 000 / idle-wait after a daemon restart).
+    const response = await fetch(url, {
+      headers: githubHeaders(),
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
     if (response.ok || response.status === 404) return response;
     const status = response.status;
     const body = await response.text();
@@ -735,7 +748,10 @@ async function searchCategoryQuery(
     try {
       // If mixed query still has filename:, rewrite to path:**/NAME for Blackbird
       let bbQuery = requestQuery;
-      if (/\bfilename\s*:/i.test(bbQuery) && !/\bpath\s*:\s*\*\*/i.test(bbQuery)) {
+      if (
+        /\bfilename\s*:/i.test(bbQuery) &&
+        !/\bpath\s*:\s*\*\*/i.test(bbQuery)
+      ) {
         bbQuery = bbQuery.replace(
           /\bfilename\s*:\s*([^\s)]+)/gi,
           (_m, name: string) => `path:**/${name.replace(/^\/+/, "")}`,
@@ -1080,7 +1096,10 @@ async function ghFetch(
     if (v !== undefined && v !== null) url.searchParams.set(k, String(v));
   }
   await throttleInterval();
-  const res = await fetch(url, { headers: githubHeaders() });
+  const res = await fetch(url, {
+    headers: githubHeaders(),
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+  });
   if (!res.ok) {
     const text = await res.text().catch(() => "");
     if (res.status === 404) return null;
