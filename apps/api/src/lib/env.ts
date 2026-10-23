@@ -23,7 +23,7 @@ function applyEnvFile(file: string) {
 }
 
 const home = process.env.HOME ?? homedir();
-const sov = process.env.estate_ROOT ?? process.env["estate-scripts_ROOT"] ?? resolve(home, "estate");
+const sov = process.env.estate-scripts_ROOT ?? resolve(home, "estate-scripts");
 applyEnvFile(resolve(sov, "config/ports.env"));
 applyEnvFile(resolve(sov, ".env.local"));
 applyEnvFile(resolve(home, ".secrets"));
@@ -31,7 +31,7 @@ applyEnvFile(resolve(home, ".secrets"));
 function requirePort(name: string): number {
   const v = process.env[name];
   if (!v) {
-    throw new Error(`${name} required (estate/config/ports.env, 25xxx range)`);
+    throw new Error(`${name} required (estate-scripts/config/ports.env, 25xxx range)`);
   }
   const n = Number(v);
   if (!Number.isFinite(n)) throw new Error(`${name} invalid: ${v}`);

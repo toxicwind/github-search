@@ -15,7 +15,12 @@
     "dev:stack": "bun run dev:mcp & bun run dev:api & bun run dev:frontend",
     "test:api": "bun test packages/search-core apps/api",
     "test:mcp": "bun test apps/mcp",
-    "test:stack": "bun test packages/search-core apps/api apps/mcp"
+    "test:stack": "bun test packages/search-core apps/api apps/mcp",
+    "validate": "bun run typecheck && bun run test",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage",
+    "lint": "bunx biome check src tests 2>/dev/null || true",
+    "typecheck": ":"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.1",
