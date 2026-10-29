@@ -4,7 +4,7 @@
 
 set -e
 
-MCP_FORK_DIR="${MCP_FORK_DIR:-/home/toxic/estate-maximal/mcp-forks/playwright-mcp}"
+MCP_FORK_DIR="${MCP_FORK_DIR:-/home/toxic/pens/ranch/archive/root-residue-20261029/vendored/playwright-mcp}"
 cd "$MCP_FORK_DIR"
 
 echo "==> Starting controllable Firefox for estate-scripts agent (Playwright remote protocol)"

@@ -1,23 +1,20 @@
 /**
- * GHAS mesh feature registry (20 features) — vendored from estate
- * `src/lib/ghas-mesh-features.ts` + `ports.ts`, integrated per 2026-10-29
- * architect order ("mesh is deprecated to integrate"): no cross-repo imports.
+ * estate-mesh — mesh feature registry (20 features) + ports SSOT loader.
  *
- * Ports: this product is self-contained — GHAS_* env vars win; fallback to the
- * estate SSOT file `pens/estate/config/ports.env` by absolute path (read-only,
- * parse-only, never a ghost import). Borrowed patterns: k8s ready/live/startup,
- * service discovery, dependency graph, version/capabilities.
+ * Borrowed patterns: k8s ready/live/startup, service discovery, dependency graph,
+ * version/capabilities. Self-contained: no cross-repo imports. Ports resolve from
+ * GHAS_* env first, then the estate SSOT file (resolved read-only, parse-only).
+ *
+ * Mount via handleMeshRequest() on /mesh/* of any service, or run mesh-hub.
  */
 import { existsSync, readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
 
 // ---------------------------------------------------------------------------
-// Port SSOT (vendored, trimmed to what the mesh needs)
+// Port SSOT (self-contained)
 // ---------------------------------------------------------------------------
-
-const SOV =
-  process.env.ESTATE_ROOT || resolve(homedir(), "pens", "estate");
+const SOV = process.env.ESTATE_ROOT || resolve(homedir(), "pens", "estate");
 
 function stripInlineComment(raw: string): string {
   const v = raw.trim();
@@ -49,23 +46,33 @@ function parseEnvFile(file: string): Record<string, string> {
 
 let portsLoaded = false;
 
+const PORTS_SSOT_CANDIDATES = [
+  resolve(homedir(), "pens", "ranch", "ssot", "ports.env"),
+  resolve(homedir(), "pens", "barn", "ssot", "ports.env"),
+  resolve(homedir(), "pens", "estate", "config", "ports.env"),
+];
+
 function loadPorts(): void {
   if (portsLoaded) return;
   portsLoaded = true;
-  const file = resolve(SOV, "config", "ports.env");
+  let file = "";
+  for (const c of PORTS_SSOT_CANDIDATES) {
+    if (existsSync(c)) { file = c; break; }
+  }
+  if (!file) return;
   for (const [k, v] of Object.entries(parseEnvFile(file))) {
-    // explicit non-placeholder env wins over the file (placeholder = unset/empty/redacted)
     const cur = process.env[k];
     if (cur === undefined || cur === "" || cur === "<redacted>") {
       process.env[k] = v;
     }
   }
 }
-
 export function requirePort(name: string): number {
   loadPorts();
   const v = process.env[name];
   if (v === undefined || v === "") {
+    const d = defaultPort(name);
+    if (d !== undefined) return d;
     throw new Error(`${name} required — set in ${SOV}/config/ports.env (25xxx SSOT)`);
   }
   const n = Number(v);
@@ -75,6 +82,10 @@ export function requirePort(name: string): number {
   return n;
 }
 
+function defaultPort(name: string): number | undefined {
+  return MESH_DEFAULT_PORTS[name];
+}
+
 function urlFor(meta: ServiceMeta, path = ""): string {
   const port = requirePort(meta.portEnv);
   const p = path.startsWith("/") ? path : path ? `/${path}` : "";
@@ -82,8 +93,26 @@ function urlFor(meta: ServiceMeta, path = ""): string {
 }
 
 // ---------------------------------------------------------------------------
-// Mesh catalog + features
+// Internal port defaults — mesh is self-contained. Env (via loadPorts from the
+// estate SSOT) wins; these defaults apply only when nothing else is set.
 // ---------------------------------------------------------------------------
+
+const MESH_DEFAULT_PORTS: Record<string, number> = {
+  BORNITE_PORT: 25100,
+  RUST_WEB_PORT: 25201,
+  YOTE_RELAY_PORT: 25102,
+  RIG_PORT: 25103,
+  ESTATE_ROUTER_PORT: 25104,
+  PROMETHEUS_PORT: 25105,
+  FEEDLOT_MCP_PORT: 25226,
+  NULL_G_PROXY_PORT: 25107,
+  GRAFANA_PORT: 25110,
+  GHAS_API_PORT: 25112,
+  GHAS_MCP_PORT: 25113,
+  MESH_HUB_PORT: 25115,
+  BOUNDLESS_PORT: 25197,
+  BENCH_RADAR_PORT: 25181,
+};
 
 export type MeshServiceId =
   | "bornite"
@@ -163,7 +192,7 @@ export function serviceCatalog(): ServiceMeta[] {
   return [
     {
       id: "bornite",
-      portEnv: "HERD_PORT",
+      portEnv: "BORNITE_PORT",
       healthPath: "/health",
       role: "llm-front-door",
       ghas_borrow: "openai-compat + models/sse keep-alive",
@@ -177,384 +206,124 @@ export function serviceCatalog(): ServiceMeta[] {
     },
     {
       id: "yote",
-      portEnv: "YOTE_PORT",
+      portEnv: "YOTE_RELAY_PORT",
       healthPath: "/health",
-      role: "telegram-bot",
-      ghas_borrow: "agent health chain + overlord",
+      role: "telegram-gateway",
+      ghas_borrow: "openfang forwarder + coyote sigil loop",
     },
     {
       id: "rig",
       portEnv: "RIG_PORT",
-      healthPath: "/api/health",
-      role: "agent-kernel",
-      ghas_borrow: "multi-provider hand swarm",
+      healthPath: "/health",
+      role: "worker-control-plane",
+      ghas_borrow: "task lane + checkpoint store",
     },
     {
       id: "estate-router",
       portEnv: "ESTATE_ROUTER_PORT",
       healthPath: "/health",
-      role: "model-router",
-      ghas_borrow: "circuit-breaker health DB + sticky sessions",
+      role: "route-control-plane",
+      ghas_borrow: "schema registry + api-address discovery",
     },
     {
       id: "prometheus",
       portEnv: "PROMETHEUS_PORT",
-      healthPath: "/-/ready",
-      role: "metrics",
-      ghas_borrow: "prom ready/live endpoints",
+      healthPath: "/health",
+      role: "metrics-front-door",
+      ghas_borrow: "scrape target registry",
     },
     {
       id: "hf-downloader",
-      portEnv: "HF_DOWNLOADER_PORT",
-      healthPath: "/",
-      role: "model-fetch",
-      ghas_borrow: "bodaay HFD hub layout",
+      portEnv: "FEEDLOT_MCP_PORT",
+      healthPath: "/health",
+      role: "model-file-downloader",
+      ghas_borrow: "dataset fetch lane",
     },
     {
       id: "null-g-proxy",
       portEnv: "NULL_G_PROXY_PORT",
       healthPath: "/health",
       role: "edge-proxy",
-      ghas_borrow: "feature-flag health banner",
+      ghas_borrow: "provider credential rotation + cutover",
     },
     {
       id: "grafana",
       portEnv: "GRAFANA_PORT",
-      healthPath: "/api/health",
-      role: "dashboards",
-      ghas_borrow: "observability mesh leaf",
+      healthPath: "/health",
+      role: "observability-dashboard",
+      ghas_borrow: "dashboards + alert routing",
     },
     {
       id: "ghas-api",
       portEnv: "GHAS_API_PORT",
-      healthPath: "/health",
-      role: "github-search-api",
-      ghas_borrow: "dual-engine code search + packs",
+      healthPath: "/api/health",
+      role: "github-advanced-search-api",
+      ghas_borrow: "blackbird web index + REST fallback",
     },
     {
       id: "ghas-mcp",
       portEnv: "GHAS_MCP_PORT",
       healthPath: "/health",
-      role: "github-search-mcp",
-      ghas_borrow: "MCP stdio+http tool surface",
+      role: "github-mcp-stdio-server",
+      ghas_borrow: "session source for blackbird + code search",
     },
     {
       id: "mesh-hub",
       portEnv: "MESH_HUB_PORT",
       healthPath: "/health",
-      role: "mesh-orchestrator",
-      ghas_borrow: "service-discovery hub + chain-health",
+      role: "mesh-coordinator",
+      ghas_borrow: "catalog + capability aggregation",
     },
     {
       id: "brand",
-      portEnv: "BRAND_PORT",
+      portEnv: "BOUNDLESS_PORT",
       healthPath: "/health",
-      role: "build-server",
-      ghas_borrow: "disk-backed build queue + worker pool",
+      role: "landing-page",
+      ghas_borrow: "unified brand surface",
     },
     {
       id: "bench-radar",
       portEnv: "BENCH_RADAR_PORT",
       healthPath: "/health",
-      role: "benchmark-regression-radar",
-      ghas_borrow: "rolling median/MAD change-point detection + reactive WS push",
+      role: "benchmark-radar",
+      ghas_borrow: "nightly tps regressions",
     },
   ];
 }
 
-const startedAt = Date.now();
+type ProbeResult = { ok: boolean; status?: number; ms?: number; error?: string };
 
-async function probe(
-  url: string,
-  timeoutMs = 1200,
-): Promise<{ ok: boolean; status: number; ms: number; body?: string }> {
-  const t0 = performance.now();
+async function probe(url: string): Promise<ProbeResult> {
+  const start = Date.now();
   try {
-    const res = await fetch(url, {
-      signal: AbortSignal.timeout(timeoutMs),
-      headers: { "accept-encoding": "identity", accept: "*/*" },
-    });
-    const body = (await res.text()).slice(0, 240);
-    return { ok: res.ok, status: res.status, ms: Math.round(performance.now() - t0), body };
+    const res = await fetch(url, { signal: AbortSignal.timeout(3000) });
+    return { ok: res.ok, status: res.status, ms: Date.now() - start };
   } catch (e) {
-    return {
-      ok: false,
-      status: 0,
-      ms: Math.round(performance.now() - t0),
-      body: String(e).slice(0, 160),
-    };
+    return { ok: false, ms: Date.now() - start, error: String(e) };
   }
 }
 
 export type MeshCtx = {
   service: MeshServiceId;
-  localHealthy?: () => boolean | Promise<boolean>;
-  version?: string;
+  role?: string;
+  localHealthy?: () => boolean;
   extra?: Record<string, unknown>;
+  version?: string;
 };
 
-function baseMeta(ctx: MeshCtx): ServiceMeta {
-  const m = serviceCatalog().find((s) => s.id === ctx.service);
-  if (!m) throw new Error(`unknown mesh service ${ctx.service}`);
-  return m;
+const uptime = Date.now();
+
+export function json(status: number, body: unknown): Response {
+  return new Response(JSON.stringify(body, null, 2), {
+    status,
+    headers: {
+      "content-type": "application/json",
+      "access-control-allow-origin": "*",
+      "x-estate-mesh": "ghas-20",
+    },
+  });
 }
 
-/** Execute one of the 20 features for a service context */
-export async function runFeature(
-  feature: FeatureId,
-  ctx: MeshCtx,
-  url?: URL,
-): Promise<{ status: number; body: unknown }> {
-  const self = baseMeta(ctx);
-  const cat = serviceCatalog();
-  const uptime = Math.floor((Date.now() - startedAt) / 1000);
-  const localOk = ctx.localHealthy ? await ctx.localHealthy() : true;
-
-  switch (feature) {
-    case "readyz": {
-      const ok = localOk;
-      return { status: ok ? 200 : 503, body: { feature, service: ctx.service, ready: ok, ghas: "k8s-readyz" } };
-    }
-    case "livez":
-      return { status: 200, body: { feature, service: ctx.service, live: true, pid: process.pid } };
-    case "startupz":
-      return {
-        status: 200,
-        body: { feature, service: ctx.service, started: true, uptime_s: uptime },
-      };
-    case "healthz": {
-      const p = await probe(urlFor(self, self.healthPath));
-      return {
-        status: p.ok ? 200 : 503,
-        body: { feature, service: ctx.service, healthy: p.ok, probe: p, role: self.role },
-      };
-    }
-    case "version":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          version: ctx.version || process.env.ESTATE_VERSION || "mesh-1.0.0",
-          node: process.version,
-          bun: typeof Bun !== "undefined" ? Bun.version : null,
-        },
-      };
-    case "features":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          count: FEATURE_IDS.length,
-          features: FEATURE_IDS,
-          ghas_origin: "kubernetes apiserver ready/live + GHAS dual-engine search mesh",
-        },
-      };
-    case "status":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          role: self.role,
-          port: requirePort(self.portEnv),
-          uptime_s: uptime,
-          local_ok: localOk,
-          ghas_borrow: self.ghas_borrow,
-          extra: ctx.extra || {},
-        },
-      };
-    case "peers": {
-      const peers = cat
-        .filter((s) => s.id !== ctx.service)
-        .map((s) => ({ id: s.id, url: urlFor(s), mesh: `${urlFor(s)}/mesh/features`, role: s.role }));
-      return { status: 200, body: { feature, service: ctx.service, peers, count: peers.length } };
-    }
-    case "deps": {
-      const edges: Record<MeshServiceId, MeshServiceId[]> = {
-        bornite: [],
-        "rust-web": ["bornite", "hf-downloader", "prometheus"],
-        yote: ["rig", "bornite"],
-        rig: ["bornite"],
-        "estate-router": ["bornite"],
-        prometheus: [],
-        "hf-downloader": [],
-        "null-g-proxy": ["bornite", "estate-router"],
-        grafana: ["prometheus"],
-        "ghas-api": ["ghas-mcp"],
-        "ghas-mcp": [],
-        "mesh-hub": cat.map((c) => c.id).filter((id) => id !== "mesh-hub"),
-        brand: [],
-        "bench-radar": [],
-      };
-      return {
-        status: 200,
-        body: { feature, service: ctx.service, depends_on: edges[ctx.service] || [] },
-      };
-    }
-    case "mesh-graph": {
-      const nodes = cat.map((s) => ({
-        id: s.id,
-        port: Number(process.env[s.portEnv] || 0),
-        role: s.role,
-      }));
-      return {
-        status: 200,
-        body: { feature, service: ctx.service, nodes, edges_note: "see /mesh/deps on each node" },
-      };
-    }
-    case "chain-health": {
-      const results: Record<string, unknown> = {};
-      let all = true;
-      await Promise.all(
-        cat.map(async (s) => {
-          const r = await probe(urlFor(s, s.healthPath));
-          results[s.id] = r;
-          if (!r.ok && s.id !== "mesh-hub") all = false;
-        }),
-      );
-      return {
-        status: all ? 200 : 207,
-        body: {
-          feature,
-          service: ctx.service,
-          all_ok: all,
-          results,
-          ghas: "meshcore-health-check style fan-out",
-        },
-      };
-    }
-    case "discover":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          catalog: cat.map((s) => ({
-            id: s.id,
-            base: urlFor(s),
-            health: urlFor(s, s.healthPath),
-            mesh_prefix: `${urlFor(s)}/mesh`,
-            role: s.role,
-          })),
-        },
-      };
-    case "capabilities":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          capabilities: {
-            mesh: true,
-            ghas_linked: true,
-            hot_reload: true,
-            openai_compat: ["bornite", "estate-router", "null-g-proxy", "yote", "rig"].includes(ctx.service),
-            search: ctx.service.startsWith("ghas"),
-          },
-        },
-      };
-    case "metrics-lite":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          uptime_s: uptime,
-          rss: process.memoryUsage?.().rss ?? null,
-          pid: process.pid,
-        },
-      };
-    case "config-public":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          public: {
-            port_env: self.portEnv,
-            health_path: self.healthPath,
-            role: self.role,
-            llm_base: process.env.LLM_BASE_URL || null,
-            ghas_api: process.env.GHAS_API_PORT ? `http://127.0.0.1:${process.env.GHAS_API_PORT}` : null,
-          },
-        },
-      };
-    case "whoami":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          host: "127.0.0.1",
-          port: requirePort(self.portEnv),
-          role: self.role,
-          ghas_borrow: self.ghas_borrow,
-        },
-      };
-    case "ping": {
-      const echo = url?.searchParams.get("echo") || "pong";
-      return { status: 200, body: { feature, service: ctx.service, echo, ts: Date.now() } };
-    }
-    case "ghas-proxy": {
-      const q = url?.searchParams.get("q") || "estate mesh";
-      const ghasPort = process.env.GHAS_API_PORT || "25112";
-      const ghasUrl = `http://127.0.0.1:${ghasPort}/health`;
-      const health = await probe(ghasUrl);
-      let search: unknown = null;
-      if (health.ok && url?.searchParams.get("search") === "1") {
-        try {
-          const sr = await fetch(
-            `http://127.0.0.1:${ghasPort}/api/search?q=${encodeURIComponent(q)}&per_page=3`,
-            { signal: AbortSignal.timeout(8000) },
-          );
-          search = await sr.json().catch(() => ({ status: sr.status }));
-        } catch (e) {
-          search = { error: String(e) };
-        }
-      }
-      return {
-        status: health.ok ? 200 : 503,
-        body: {
-          feature,
-          service: ctx.service,
-          ghas_health: health,
-          ghas_url: `http://127.0.0.1:${ghasPort}`,
-          query: q,
-          search,
-          note: "Use ?search=1&q=term to fan-out to GHAS API",
-        },
-      };
-    }
-    case "routes":
-      return {
-        status: 200,
-        body: {
-          feature,
-          service: ctx.service,
-          routes: FEATURE_IDS.map((f) => `/mesh/${f}`),
-          alias: ["/mesh", "/mesh/", "/mesh/features"],
-        },
-      };
-    case "link-check": {
-      const hubPort = process.env.MESH_HUB_PORT || "25115";
-      const hub = await probe(`http://127.0.0.1:${hubPort}/health`);
-      const selfProbe = await probe(urlFor(self, self.healthPath));
-      return {
-        status: hub.ok && selfProbe.ok ? 200 : 207,
-        body: { feature, service: ctx.service, self: selfProbe, mesh_hub: hub, linked: hub.ok && selfProbe.ok },
-      };
-    }
-    default:
-      return { status: 404, body: { error: "unknown feature", feature } };
-  }
-}
-
-/**
- * Handle HTTP for /mesh and /mesh/{feature}.
- * Returns null if path is not a mesh path (caller continues).
- */
 export async function handleMeshRequest(
   req: Request,
   ctx: MeshCtx,
@@ -592,19 +361,270 @@ export async function handleMeshRequest(
   return json(status, body);
 }
 
-export function json(status: number, body: unknown): Response {
-  return new Response(JSON.stringify(body, null, 2), {
-    status,
-    headers: {
-      "content-type": "application/json",
-      "access-control-allow-origin": "*",
-      "x-estate-mesh": "ghas-20",
-    },
-  },
-  );
-}
-
 /** Hono-compatible mount helper */
 export function meshFetchFor(ctx: MeshCtx) {
-  return async (req: Request): Promise<Response | null> => handleMeshRequest(req, ctx);
+  return async (req: Request): Promise<Response | null> =>
+    handleMeshRequest(req, ctx);
+}
+
+export async function runFeature(
+  feature: FeatureId,
+  ctx: MeshCtx,
+  u?: URL,
+): Promise<{ status: number; body: unknown }> {
+  const cat = serviceCatalog();
+  const self = cat.find((s) => s.id === ctx.service);
+  if (!self) {
+    return { status: 404, body: { error: "unknown service", service: ctx.service } };
+  }
+  const localOk = ctx.localHealthy ? ctx.localHealthy() : true;
+
+  switch (feature) {
+    case "readyz": {
+      const ok = localOk;
+      return { status: ok ? 200 : 503, body: { feature, service: ctx.service, ready: ok, ghas: "k8s-readyz" } };
+    }
+    case "livez":
+      return { status: 200, body: { feature, service: ctx.service, live: true, pid: process.pid } };
+    case "startupz":
+      return {
+        status: 200,
+        body: { feature, service: ctx.service, started: true, uptime_s: uptime },
+      };
+    case "healthz": {
+      const p = await probe(urlFor(self, self.healthPath));
+      return {
+        status: p.ok ? 200 : 503,
+        body: { feature, service: ctx.service, healthy: p.ok, probe: p, role: self.role },
+      };
+    }
+    case "version": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          version: ctx.version || process.env.ESTATE_VERSION || "mesh-1.0.0",
+          node: process.version,
+          bun: typeof Bun !== "undefined" ? Bun.version : null,
+        },
+      };
+    }
+    case "features": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          count: FEATURE_IDS.length,
+          features: FEATURE_IDS,
+          ghas_origin: "kubernetes apiserver ready/live + GHAS dual-engine search mesh",
+        },
+      };
+    }
+    case "status": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          role: self.role,
+          port: requirePort(self.portEnv),
+          uptime_s: uptime,
+          local_ok: localOk,
+          ghas_borrow: self.ghas_borrow,
+          extra: ctx.extra || {},
+        },
+      };
+    }
+    case "peers": {
+      const peers = cat
+        .filter((s) => s.id !== ctx.service)
+        .map((s) => {
+          try {
+            return { id: s.id, url: urlFor(s), mesh: `${urlFor(s)}/mesh/features`, role: s.role };
+          } catch {
+            return null;
+          }
+        })
+        .filter((p): p is NonNullable<typeof p> => p !== null);
+      return { status: 200, body: { feature, service: ctx.service, peers, count: peers.length } };
+    }
+    case "deps": {
+      const edges: Record<MeshServiceId, MeshServiceId[]> = {
+        bornite: [],
+        "rust-web": ["bornite", "hf-downloader", "prometheus"],
+        yote: ["rig", "bornite"],
+        rig: ["bornite"],
+        "estate-router": ["bornite"],
+        prometheus: [],
+        "hf-downloader": [],
+        "null-g-proxy": ["bornite", "estate-router"],
+        grafana: ["prometheus"],
+        "ghas-api": ["ghas-mcp"],
+        "ghas-mcp": [],
+        "mesh-hub": cat.map((c) => c.id).filter((id) => id !== "mesh-hub"),
+        brand: [],
+        "bench-radar": [],
+      };
+      return {
+        status: 200,
+        body: { feature, service: ctx.service, depends_on: edges[ctx.service] || [] },
+      };
+    }
+    case "mesh-graph": {
+      const nodes = cat.map((s) => {
+        let port: number;
+        try {
+          port = requirePort(s.portEnv);
+        } catch {
+          port = 0;
+        }
+        return { id: s.id, port, role: s.role };
+      });
+      return {
+        status: 200,
+        body: { feature, service: ctx.service, nodes, edges_note: "see /mesh/deps on each node" },
+      };
+    }
+    case "chain-health": {
+      const results: Record<string, unknown> = {};
+      let all = true;
+      await Promise.all(
+        cat.map(async (s) => {
+          const r = await probe(urlFor(s, s.healthPath));
+          results[s.id] = r;
+          if (!r.ok && s.id !== "mesh-hub") all = false;
+        }),
+      );
+      return {
+        status: all ? 200 : 207,
+        body: {
+          feature,
+          service: ctx.service,
+          all_ok: all,
+          results,
+        },
+      };
+    }
+    case "discover": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          catalog: cat.map((s) => ({ id: s.id, portEnv: s.portEnv, role: s.role })),
+        },
+      };
+    }
+    case "capabilities": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          capabilities: {
+            mesh: true,
+            ghas_linked: true,
+            hot_reload: true,
+            openai_compat: ["bornite", "estate-router", "null-g-proxy", "yote", "rig"].includes(
+              ctx.service,
+            ),
+            search: ctx.service.startsWith("ghas"),
+          },
+        },
+      };
+    }
+    case "metrics-lite": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          uptime_s: uptime,
+          rss: process.memoryUsage?.().rss ?? null,
+          pid: process.pid,
+        },
+      };
+    }
+    case "config-public": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          public: {
+            port_env: self.portEnv,
+            health_path: self.healthPath,
+            role: self.role,
+            llm_base: process.env.LLM_BASE_URL || null,
+            ghas_api: process.env.GHAS_API_PORT
+              ? `http://127.0.0.1:${process.env.GHAS_API_PORT}`
+              : null,
+          },
+        },
+      };
+    }
+    case "whoami": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          host: "127.0.0.1",
+          port: requirePort(self.portEnv),
+          role: self.role,
+          ghas_borrow: self.ghas_borrow,
+        },
+      };
+    }
+    case "ping": {
+      const echo = u?.searchParams.get("echo") || "pong";
+      return { status: 200, body: { feature, service: ctx.service, echo, ts: Date.now() } };
+    }
+    case "ghas-proxy": {
+      const q = u?.searchParams.get("q") || "estate mesh";
+      const ghasPort = process.env.GHAS_API_PORT || "25112";
+      const ghasUrl = `http://127.0.0.1:${ghasPort}/health`;
+      const health = await probe(ghasUrl);
+      let search: unknown = null;
+      if (health.ok && u?.searchParams.get("search") === "1") {
+        try {
+          const sr = await fetch(
+            `http://127.0.0.1:${ghasPort}/api/search?q=${encodeURIComponent(q)}&per_page=3`,
+            { signal: AbortSignal.timeout(8000) },
+          );
+          search = await sr.json().catch(() => ({ status: sr.status }));
+        } catch (e) {
+          search = { error: String(e) };
+        }
+      }
+      return {
+        status: 200,
+        body: { feature, service: ctx.service, health, query: q, search },
+      };
+    }
+    case "routes": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          routes: ["/mesh", "/mesh/{feature}", "/mesh/s/{service}/{feature}"],
+        },
+      };
+    }
+    case "link-check": {
+      return {
+        status: 200,
+        body: {
+          feature,
+          service: ctx.service,
+          links: ["https://github.com/toxicwind/github-search"],
+        },
+      };
+    }
+    default:
+      return { status: 404, body: { error: "unknown feature", feature } };
+  }
 }

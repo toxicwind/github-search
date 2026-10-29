@@ -49,3 +49,9 @@ Thumbs.db
 scripts/cycle_*
 .fastembed_cache/
 _production_archive/cache/
+
+# agent-state dotdirs (may hold tokens; never sweep with git add -A)
+.codeium/
+.serena/
+.codex/
+.gemini/

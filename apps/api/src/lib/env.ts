@@ -17,7 +17,8 @@ function applyEnvFile(file: string) {
     const val = line
       .slice(eq + 1)
       .trim()
-      .replace(/^['"]|['"]$/g, "");
+      .replace(/^['"]|['"]$/g, "")
+      .replace(/\s+#.*$/, "");
     if (key && process.env[key] === undefined) process.env[key] = val;
   }
 }
@@ -68,7 +69,8 @@ function loadEnvFile(env: Record<string, string>, file: string) {
     const val = line
       .slice(eq + 1)
       .trim()
-      .replace(/^['"]|['"]$/g, "");
+      .replace(/^['"]|['"]$/g, "")
+      .replace(/\s+#.*$/, "");
     if (!env[key]) env[key] = val;
   }
 }

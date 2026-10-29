@@ -110,7 +110,7 @@ async function main() {
     console.log("[dev-headed] Firefox live mode requested — launching controllable profile (the real one you use)");
     // This calls the estate-scripts-browser scripts we installed as part of "complete github-advanced-search-mcp install"
     const { spawnSync } = await import("node:child_process");
-    const launcher = path.join(ROOT, "scripts/estate-scripts-browser/launch-firefox-from-profile.sh");
+    const launcher = path.join(ROOT, "scripts/estate-browser/start-firefox-for-agent.sh");
     spawnSync("bash", [launcher], { stdio: "inherit", cwd: ROOT });
     console.log("[dev-headed] Firefox profile launcher started (or reused). Use its ws:// endpoint with the playwright MCP for full browser_* tools.");
     console.log("[dev-headed] You can now point estate-scripts-playwright-fork or this MCP's browser flows at your live Firefox.");

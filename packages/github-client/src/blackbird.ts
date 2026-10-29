@@ -176,22 +176,43 @@ function readCookiesFromSqlite(profileDir: string): CookieCache | null {
 /** Kryptos keyring (Secret Service SSOT) session labels — anomaly-#50 master. */
 function keyringSession(label: "GITHUB_SESSIONS" | "GITHUB_SESSION"): CookieCache | null {
   const bin = process.env.SECRETSMITH_BIN ?? "secretsmith";
-  try {
-    const res = Bun.spawnSync([bin, "get", label, "--show"], {
-      stdout: "pipe",
-      stderr: "pipe",
-    });
-    const value = res.stdout.toString().trim();
-    if (!value || value.length < 20 || value.startsWith("your_")) return null;
+  const run = (args: string[]): string | null => {
+    try {
+      const res = Bun.spawnSync([bin, ...args], { stdout: "pipe", stderr: "pipe" });
+      return res.exitCode === 0 ? res.stdout.toString() : null;
+    } catch {
+      return null;
+    }
+  };
+  // JSON mode first (structured .secret field); --show text as fallback.
+  for (const args of [["get", label, "--json"], ["get", label, "--show"]] as const) {
+    const raw = run([...args]);
+    if (!raw) continue;
+    let candidate = "";
+    if (args.includes("--json")) {
+      try {
+        const parsed = JSON.parse(raw) as { secret?: unknown };
+        candidate = typeof parsed.secret === "string" ? parsed.secret : "";
+      } catch {
+        candidate = "";
+      }
+    }
+    if (!candidate) candidate = raw;
+    // GITHUB_SESSIONS contract: comma/whitespace-separated sessions — take the
+    // first viable one. Also defends against stored trailing newlines/CRLF.
+    const session = candidate
+      .split(/[,\s]+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length >= 20 && !s.startsWith("your_"))[0];
+    if (!session) continue;
     return {
-      cookie: `user_session=${value}; logged_in=yes`,
-      user_session: value,
+      cookie: `user_session=${session}; logged_in=yes`,
+      user_session: session,
       source: `keyring:${label}`,
       fetchedAt: Date.now(),
     };
-  } catch {
-    return null;
   }
+  return null;
 }
 
 /** Refresh cookie jar from env, kryptos keyring, or Firefox profile (cheap; call before web search). */
@@ -217,19 +238,21 @@ export function refreshGithubWebSession(force = false): CookieCache | null {
     return cookieCache;
   }
 
-  for (const label of ["GITHUB_SESSIONS", "GITHUB_SESSION"] as const) {
-    const hit = keyringSession(label);
+  // Firefox cookies are FRESH (live-verified 2026-10-29); the keyring
+  // GITHUB_SESSIONS value is a stale fallback — try Firefox first.
+  for (const profile of firefoxProfileCandidates()) {
+    const hit = readCookiesFromSqlite(profile);
     if (hit) {
       cookieCache = hit;
       return hit;
     }
   }
 
-  for (const profile of firefoxProfileCandidates()) {
-    const hit = readCookiesFromSqlite(profile);
+  for (const label of ["GITHUB_SESSIONS", "GITHUB_SESSION"] as const) {
+    const hit = keyringSession(label);
     if (hit) {
       cookieCache = hit;
-      return cookieCache;
+      return hit;
     }
   }
 
@@ -323,6 +346,13 @@ export async function searchBlackbirdCode(
 
   const json = (await res.json()) as {
     payload?: {
+      blackbirdSearchRoute?: {
+        results?: BlackbirdHit[];
+        result_count?: number;
+        page_count?: number | null;
+        logged_in?: boolean;
+        errors?: unknown[];
+      };
       results?: BlackbirdHit[];
       result_count?: number;
       page_count?: number | null;
@@ -330,7 +360,10 @@ export async function searchBlackbirdCode(
       errors?: unknown[];
     };
   };
-  const payload = json.payload ?? {};
+  const p = json.payload ?? {};
+  // 2026-10-29: GitHub moved results under payload.blackbirdSearchRoute.*
+  // (verified live); legacy payload.* kept for rollback safety.
+  const payload = p.blackbirdSearchRoute ?? p;
   if (payload.logged_in === false) {
     // Session dead — force next refresh from Firefox
     cookieCache = null;
