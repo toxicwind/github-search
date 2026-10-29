@@ -28,6 +28,8 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "bun-types": "^1.4.4",
     "@types/node": "^24.5.2",
     "playwright": "^1.58.2",
     "typescript": "^5.9.2"

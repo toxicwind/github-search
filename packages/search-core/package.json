@@ -1,10 +1,15 @@
 {
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "bun-types": "^1.4.4"
+  },
   "name": "@ghas/search-core",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./mesh": "./src/mesh.ts"
   },
   "dependencies": {
     "@ghas/contracts": "workspace:*"

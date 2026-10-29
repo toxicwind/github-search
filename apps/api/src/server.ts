@@ -9,7 +9,7 @@ import { runMcpSearch } from "./adapters/mcp-adapter";
 import { expandPack, QUERY_PACKS } from "./lib/query-packs";
 import { streamFile, tailFile } from "./services/log-service";
 import { ensureMcpStarted, mcpStatus, restartMcp } from "./services/mcp-manager";
-import { handleMeshRequest } from "/home/toxic/estate/src/lib/ghas-mesh-features.ts";
+import { handleMeshRequest } from "@ghas/search-core/mesh";
 
 const CORS_HEADERS = {
   "access-control-allow-origin": "*",

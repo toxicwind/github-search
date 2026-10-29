@@ -173,7 +173,28 @@ function readCookiesFromSqlite(profileDir: string): CookieCache | null {
   }
 }
 
-/** Refresh cookie jar from env or Firefox profile (cheap; call before web search). */
+/** Kryptos keyring (Secret Service SSOT) session labels — anomaly-#50 master. */
+function keyringSession(label: "GITHUB_SESSIONS" | "GITHUB_SESSION"): CookieCache | null {
+  const bin = process.env.SECRETSMITH_BIN ?? "secretsmith";
+  try {
+    const res = Bun.spawnSync([bin, "get", label, "--show"], {
+      stdout: "pipe",
+      stderr: "pipe",
+    });
+    const value = res.stdout.toString().trim();
+    if (!value || value.length < 20 || value.startsWith("your_")) return null;
+    return {
+      cookie: `user_session=${value}; logged_in=yes`,
+      user_session: value,
+      source: `keyring:${label}`,
+      fetchedAt: Date.now(),
+    };
+  } catch {
+    return null;
+  }
+}
+
+/** Refresh cookie jar from env, kryptos keyring, or Firefox profile (cheap; call before web search). */
 export function refreshGithubWebSession(force = false): CookieCache | null {
   if (
     !force &&
@@ -194,6 +215,14 @@ export function refreshGithubWebSession(force = false): CookieCache | null {
       fetchedAt: Date.now(),
     };
     return cookieCache;
+  }
+
+  for (const label of ["GITHUB_SESSIONS", "GITHUB_SESSION"] as const) {
+    const hit = keyringSession(label);
+    if (hit) {
+      cookieCache = hit;
+      return hit;
+    }
   }
 
   for (const profile of firefoxProfileCandidates()) {
