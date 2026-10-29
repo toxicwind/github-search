@@ -189,21 +189,27 @@ function keyringSession(label: "GITHUB_SESSIONS" | "GITHUB_SESSION"): CookieCach
     const raw = run([...args]);
     if (!raw) continue;
     let candidate = "";
+    let returnedLabel = "";
     if (args.includes("--json")) {
       try {
-        const parsed = JSON.parse(raw) as { secret?: unknown };
+        const parsed = JSON.parse(raw) as { secret?: unknown; label?: unknown };
         candidate = typeof parsed.secret === "string" ? parsed.secret : "";
+        returnedLabel = typeof parsed.label === "string" ? parsed.label : "";
       } catch {
         candidate = "";
       }
     }
     if (!candidate) candidate = raw;
-    // GITHUB_SESSIONS contract: comma/whitespace-separated sessions — take the
-    // first viable one. Also defends against stored trailing newlines/CRLF.
+    // secretsmith get on a MISSING label silently returns an arbitrary
+    // keyring item (live-verified 2026-10-29: get GITHUB_SESSIONS returned
+    // MOONBOX_CHAOS_API_KEY). Reject any response whose label doesn't match
+    // what was asked for, and require a session-cookie-shaped secret
+    // (GitHub user_session tokens are 100+ char opaque base64url).
+    if (returnedLabel && returnedLabel !== label) continue;
     const session = candidate
       .split(/[,\s]+/)
       .map((s) => s.trim())
-      .filter((s) => s.length >= 20 && !s.startsWith("your_"))[0];
+      .filter((s) => s.length >= 100 && /^[A-Za-z0-9+_/=-]+$/.test(s) && !s.startsWith("your_"))[0];
     if (!session) continue;
     return {
       cookie: `user_session=${session}; logged_in=yes`,
