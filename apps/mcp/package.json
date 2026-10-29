@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts --mode http",
-    "start": "bun src/server.ts --mode http"
+    "start": "bun src/server.ts --mode http",
+    "debug": "bun --inspect=0.0.0.0:9230 --watch src/server.ts --mode http",
+    "build": "bun build src/server.ts --target=bun --outdir=dist",
+    "start:prod": "bun dist/server.js --mode http"
   },
   "dependencies": {
     "@ghas/contracts": "workspace:*",

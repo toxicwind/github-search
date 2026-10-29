@@ -44,11 +44,22 @@ function createMcpServer() {
 async function startMcpHttp() {
   // Lazy mesh (estate-scripts lib) — optional if path missing
   let handleMesh: ((req: Request, ctx: any) => Promise<Response | null>) | null = null;
-  try {
-    const mod = await import("/home/toxic/estate/src/lib/ghas-mesh-features.ts");
-    handleMesh = mod.handleMeshRequest;
-  } catch (e) {
-    console.warn("mesh features unavailable", e);
+  // Resolve the optional mesh lib from the workspace (never absolute ghost paths).
+  const meshCandidates = [
+    import.meta.resolve("../lib/ghas-mesh-features.ts"),
+    import.meta.resolve("../../lib/ghas-mesh-features.ts"),
+    import.meta.resolve("../../../../lib/ghas-mesh-features.ts"),
+  ];
+  for (const resolved of meshCandidates) {
+    try {
+      const mod = await import(resolved);
+      if (mod?.handleMeshRequest) {
+        handleMesh = mod.handleMeshRequest;
+        break;
+      }
+    } catch (e) {
+      console.warn("mesh unavailable at " + resolved, (e as Error)?.message);
+    }
   }
 
   const mcpServer = createMcpServer();
