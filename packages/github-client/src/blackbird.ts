@@ -278,8 +278,19 @@ export function needsBlackbirdEngine(query: string): boolean {
       return false;
     }
   }
-  // auto (default): new syntax or path:** / regex path
-  if (/\bpath\s*:\s*\*\*/i.test(query)) return true;
+  	// Bare /regex/queries (with or without flags, optionally quoted): REST
+	// /search/code has no regex semantics and silently returns 0 — Blackbird
+	// (github.com/search UI) is the only engine that evaluates them. Detected
+	// live 2026-10-29: /nzbhydr(a|)2?d?/i → 0 results via REST, substring → 10.
+	// Guard against qualifiers: a regex BODY may mention "path:" — an unquoted
+	// qualifier is `path:` at a token boundary outside any /…/ envelope.
+	const bareRegex = /^\s*"?\/(?![/*])[^/\n]+\/[a-z]*"?\s*$/i.test(query) && !/^\s*(filename|content|symbol)\s*:/i.test(query);
+	if (bareRegex) {
+		const envelope = /^\s*"?\/(.+)\/[a-z]*"?\s*$/i.exec(query);
+		if (envelope && !/^\s*\w+\s*:/i.test(envelope[1]!)) return true;
+	}
+	// auto (default): new syntax or path:** / regex path
+	if (/\bpath\s*:\s*\*\*/i.test(query)) return true;
   if (/\bpath\s*:\s*\//i.test(query)) return true; // path:/(^|\/)…$/ or path:/src/
   if (/\bpath\s*:\s*"[^"]*\*[^"]*"/i.test(query)) return true;
   if (/\bcontent\s*:/i.test(query)) return true;
