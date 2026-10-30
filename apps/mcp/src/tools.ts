@@ -31,7 +31,7 @@ export const GHAS_TOOLS: ToolDef[] = [
   {
     name: "ghas_search_code",
     description:
-      "Dual-engine GitHub code search. GHAS_CODE_ENGINE=auto (default): Blackbird (github.com/search UI index) when web session + path:** / path:/…/ / content: / symbol: (or any path: with session); classic REST /search/code otherwise. Qualifiers are NOT interchangeable — never rewrite filename:↔path:. filename:NAME = basename/leaf (REST); path:SEG = path substring; path:**/… = Blackbird-only globs. Prefer filename:.zshrc for basename; path:src for dirs; path:**/*.toml for globs.",
+      "Dual-engine GitHub code search. GHAS_CODE_ENGINE=blackbird (DEFAULT): Blackbird (github.com/search UI index) is FIRST — any code query routes to it when a web session resolves (async-refreshed, incl. fresh mobile-Fenix/Firefox). REST /search/code is the explicit fallback (env GHAS_CODE_ENGINE=rest) or pure-filename. Qualifiers are NOT interchangeable — never rewrite filename:↔path:. filename:NAME = basename/leaf (REST-only); path:SEG = path substring; path:**/… = Blackbird-only globs. Prefer filename:.zshrc for basename; path:src for dirs; path:**/*.toml for globs.",
     category: "code",
     inputSchema: searchSchema("code"),
   },
