@@ -11,6 +11,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
+    "@devicefarmer/adbkit": "^4.0.0",
     "@ghas/contracts": "workspace:*"
   }
 }

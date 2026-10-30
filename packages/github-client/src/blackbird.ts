@@ -262,12 +262,50 @@ export function refreshGithubWebSession(force = false): CookieCache | null {
     }
   }
 
+  // Mobile-Firefox fallback: the architect is frequently logged into github
+  // on the Pixel (fenix). Best-effort — an unreadable/adb-off state returns
+  // null here and searchBlackbirdCode degrades to logged_in:false gracefully.
+  const mobile = cachedMobileSession();
+  if (mobile) {
+    cookieCache = mobile;
+    return mobile;
+  }
+
   cookieCache = null;
   return null;
 }
 
+// Lazy-import the mobile grabber so adding adbkit to the github-client dep set
+// never affects callers that only need sync keyring/Firefox resolution.
+let _mobileCache: CookieCache | null = null;
+function cachedMobileSession(): CookieCache | null {
+  if (_mobileCache && Date.now() - _mobileCache.fetchedAt < REFRESH_MS) return _mobileCache;
+  _mobileCache = null;
+  // fire-and-forget best-effort: don't block resolution on adb.
+  void import("./github-session-mobile.ts").then(async (m) => {
+    const got = await m.getMobileGithubSession();
+    if (got) _mobileCache = { cookie: got.cookie, user_session: got.user_session, source: got.source, fetchedAt: Date.now() };
+  }).catch(() => {});
+  return null; // first call returns null; subsequent within REFRESH_MS use cache
+}
+
 export function hasBlackbirdSession(): boolean {
   return Boolean(refreshGithubWebSession()?.user_session);
+}
+
+/** Async variant that waits for a possible mobile-fenix session (best-effort, bounded). */
+export async function refreshGithubWebSessionAsync(force = false): Promise<CookieCache | null> {
+  const sync = refreshGithubWebSession(force);
+  if (sync?.user_session) return sync;
+  try {
+    const m = await import("./github-session-mobile.ts");
+    const got = await m.getMobileGithubSession();
+    if (got) {
+      cookieCache = { cookie: got.cookie, user_session: got.user_session, source: got.source, fetchedAt: Date.now() };
+      return cookieCache;
+    }
+  } catch {}
+  return cookieCache;
 }
 
 /**
