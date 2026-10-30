@@ -18,6 +18,7 @@ import {
   hasBlackbirdSession,
   needsBlackbirdEngine,
   refreshGithubWebSession,
+  refreshGithubWebSessionAsync,
   searchBlackbirdCode,
 } from "./blackbird";
 
@@ -26,6 +27,7 @@ export {
   hasBlackbirdSession,
   needsBlackbirdEngine,
   refreshGithubWebSession,
+  refreshGithubWebSessionAsync,
   searchBlackbirdCode,
 };
 
@@ -725,12 +727,20 @@ async function searchCategoryQuery(
     !/\bpath\s*:/i.test(requestQuery) &&
     !/\bcontent\s*:/i.test(requestQuery) &&
     !/\bsymbol\s*:/i.test(requestQuery);
-  const useBlackbird =
-    category === "code" &&
-    hasBlackbirdSession() &&
-    !pureFilename &&
-    (needsBlackbirdEngine(requestQuery) ||
-      process.env.GHAS_CODE_ENGINE !== "rest");
+  // FIRST-CLASS: Blackbird is the default engine for code search (it is the
+  // github.com/search UI index and diverges from REST ranking/results). Prefer
+  // it whenever a session is RESOLVABLE — use the async refresh so a fresh
+  // mobile-Fenix/Firefox session has a bounded wait to appear (the sync
+  // hasBlackbirdSession() misses it on first call and drops to REST → silent 0
+  // for path:** / bare-regex, the #61/#62 traps). REST is the explicit fallback
+  // (GHAS_CODE_ENGINE=rest) or pure-filename (REST-only qualifier).
+  const blackbirdDefault =
+    (process.env.GHAS_CODE_ENGINE ?? "blackbird") !== "rest";
+  const hasSession = Boolean((await refreshGithubWebSessionAsync(false))?.user_session);
+  // Blackbird is FIRST: any code query (subject to the guards above) routes to
+  // Blackbird whenever a session resolves — REST is no longer the silent default
+  // that returns 0 for path:** / bare-regex / content: / symbol:.
+  const useBlackbird = category === "code" && !pureFilename && blackbirdDefault && hasSession;
   if (useBlackbird) {
     try {
       // If mixed query still has filename:, rewrite to path:**/NAME for Blackbird
