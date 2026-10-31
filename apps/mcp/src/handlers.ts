@@ -216,11 +216,11 @@ export async function dispatchTool(name: string, args: Record<string, unknown>) 
 
   if (name === "github_search") {
     const cats = (args.categories as SearchCategory[] | undefined) ?? ["unified"];
-    return await performSearch(String(args.query), perPage, cats, false, strict);
+    return await performSearch(resolveQuery(args), perPage, cats, false, strict);
   }
 
   if (def.category && def.category !== "meta") {
-    return await performSearch(String(args.query), perPage, [def.category], false, strict);
+    return await performSearch(resolveQuery(args), perPage, [def.category], false, strict);
   }
 
   throw new Error(`Unhandled tool: ${name}`);
