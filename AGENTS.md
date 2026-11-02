@@ -262,7 +262,7 @@ estate-scripts (`pitchfork start mcpproxy` / `mise run restart-mcpproxy` -> `mcp
 
 ## 🔌 Port SSOT
 
-`/home/toxic/estate/config/ports.env` — all 25xxx, never invent.
+`/home/toxic/pens/estate/config/ports.env` — all 25xxx, never invent.
 
 ---
 
