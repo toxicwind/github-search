@@ -16,7 +16,12 @@ function requirePort(name: string): number {
   if (!v) throw new Error(`${name} required (estate-scripts/config/ports.env)`);
   return Number(v);
 }
-const modeArg = Bun.argv.includes("--mode") ? Bun.argv[Bun.argv.indexOf("--mode") + 1] : "http";
+// Mode default: stdio when stdin is not a TTY (invoked as an MCP child — thresher),
+// http when served interactively. The compiled binary crashed at requirePort when
+// launched bare (unexpected content type, empty response — 2026-11-02).
+const modeArg = Bun.argv.includes("--mode")
+  ? Bun.argv[Bun.argv.indexOf("--mode") + 1]
+  : process.stdin.isTTY ? "http" : "stdio";
 const host = process.env.GHAS_MCP_HOST ?? "127.0.0.1";
 const port = modeArg === "http" ? requirePort("GHAS_MCP_PORT") : 0;
 
