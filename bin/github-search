@@ -1,0 +1,12 @@
+#!/usr/bin/env bun
+// github-search — blackbird engine wrapper
+import { searchGithubDetailed } from "../../barn/products/blackbird/src/search.ts";
+
+const args = process.argv.slice(2);
+const query = args[0];
+const detailed = args.includes("--detailed");
+const limitIdx = args.indexOf("--limit");
+const limit = limitIdx !== -1 ? parseInt(args[limitIdx + 1]) : 10;
+
+const results = await searchGithubDetailed(query, { detailed, limit });
+console.log(JSON.stringify(results, null, 2));
